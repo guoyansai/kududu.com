@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - 智能机器人产业平台</title>
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #4a4aff;
+            --dark: #0a0a2e;
+            --bg-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft Yahei', sans-serif;
+        }
+
+        body {
+            background: var(--dark);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 46, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: var(--bg-gradient);
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 60px;
+            background: radial-gradient(circle at center,
+                    rgba(0, 247, 255, 0.1) 0%,
+                    rgba(10, 10, 46, 1) 70%);
+        }
+
+        .search-box {
+            width: 60%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .grid-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    var(--primary),
+                    transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 0.3;
+            animation: borderFlow 3s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% {
+                transform: rotate(45deg) translate(-30%, -30%);
+            }
+
+            100% {
+                transform: rotate(45deg) translate(30%, 30%);
+            }
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* 产品列表页样式 */
+        .product-list {
+            max-width: 1400px;
+            margin: 100px auto 2rem;
+            padding: 0 1rem;
+        }
+
+        .product-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            position: relative;
+            transition: 0.3s;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+        }
+
+        .product-image {
+            height: 200px;
+            background: var(--bg-gradient);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-price {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .cart-btn {
+            background: var(--bg-gradient);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* 产品详情页样式 */
+        .product-detail {
+            max-width: 1400px;
+            margin: 100px auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+        }
+
+        .gallery-main {
+            height: 500px;
+            background: var(--bg-gradient);
+            border-radius: 15px;
+        }
+
+        .spec-list {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        .order-panel {
+            position: sticky;
+            top: 100px;
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .quantity-input button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--bg-gradient);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .quantity-input input {
+            width: 60px;
+            text-align: center;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 20px;
+        }
+
+        /* 购物车样式 */
+        .cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-gradient);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            display: none;
+            border: 2px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="logo">ROBOT INDUSTRY</div>
+            <div class="nav-menu">
+                <a href="#news">行业资讯</a>
+                <a href="#suppliers">供应商</a>
+                <a href="#products">产品库</a>
+                <a href="#jobs">人才招聘</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- 产品列表页 -->
+    <div class="product-list">
+        <div class="product-filter">
+            <input type="text" placeholder="搜索产品..." class="search-input">
+            <select class="filter-select">
+                <option>所有分类</option>
+                <option>工业机器人</option>
+                <option>服务机器人</option>
+            </select>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image"></div>
+                <h3>智能焊接机器人 X200</h3>
+                <div class="product-price">¥ 248,000</div>
+                <button class="cart-btn" onclick="addToCart(1)">加入购物车</button>
+            </div>
+            <!-- 更多产品卡片 -->
+        </div>
+    </div>
+
+    <!-- 产品详情页 -->
+    <div class="product-detail">
+        <div class="gallery-main"></div>
+        <div class="spec-list">
+            <h2>技术参数</h2>
+            <ul>
+                <li>工作半径：2000mm</li>
+                <li>重复精度：±0.05mm</li>
+                <li>负载能力：20kg</li>
+            </ul>
+        </div>
+        
+        <div class="order-panel">
+            <h2>智能焊接机器人 X200</h2>
+            <div class="product-price">¥ 248,000</div>
+            <div class="quantity-input">
+                <button onclick="updateQuantity(-1)">-</button>
+                <input type="number" value="1" min="1" id="quantity">
+                <button onclick="updateQuantity(1)">+</button>
+            </div>
+            <button class="cart-btn" onclick="addToCart(1)">立即购买</button>
+        </div>
+    </div>
+
+    <!-- 购物车 -->
+    <div class="cart-icon" onclick="toggleCart()">
+        🛒
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <h2>购物车</h2>
+        <div id="cartItems"></div>
+        <div class="total-price">总计：¥ <span id="totalPrice">0</span></div>
+        <button class="cart-btn" onclick="checkout()">立即结算</button>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // 购物车功能
+        function updateCartDisplay() {
+            document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function addToCart(productId, quantity = 1) {
+            const existing = cart.find(item => item.id === productId);
+            if(existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push({ id: productId, quantity });
+            }
+            updateCartDisplay();
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <span>产品 ${item.id}</span>
+                    <input type="number" value="${item.quantity}" 
+                           onchange="updateCartItem(${item.id}, this.value)">
+                    <button onclick="removeItem(${item.id})">删除</button>
+                </div>
+            `).join('');
+            document.getElementById('totalPrice').textContent = cart.reduce((sum, item) => sum + (item.quantity * 248000), 0);
+        }
+
+        function updateCartItem(id, quantity) {
+            const item = cart.find(item => item.id === id);
+            if(item) item.quantity = parseInt(quantity) || 1;
+            updateCartDisplay();
+            renderCart();
+        }
+
+        function removeItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartDisplay();
+            renderCart();
+        }
+
+        function checkout() {
+            alert('跳转至结算页面...');
+            // 实际开发中跳转至结算页
+        }
+
+        // 数量选择器
+        function updateQuantity(change) {
+            const input = document.getElementById('quantity');
+            let value = parseInt(input.value) + change;
+            input.value = value < 1 ? 1 : value;
+        }
+
+        // 关闭模态框
+        window.onclick = function(event) {
+            if(event.target === document.getElementById('cartModal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

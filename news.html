@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行业资讯 - 智能机器人产业平台</title>
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #4a4aff;
+            --dark: #0a0a2e;
+            --bg-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --nav-height: 60px;
+        }
+
+        /* 动态加载效果 */
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .news-card,
+        .product-card,
+        .job-card {
+            animation: cardEntrance 0.6s ease-out;
+            animation-fill-mode: backwards;
+        }
+
+        /* 交互效果增强 */
+        .search-input {
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 30px var(--primary);
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-direction: column;
+                position: fixed;
+                right: -100%;
+                top: var(--nav-height);
+                background: rgba(10, 10, 46, 0.95);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* 公共样式 */
+        body,
+        .nav-bar,
+        .logo,
+        .footer {
+            margin: 0;
+            color: white;
+            font-family: 'Microsoft Yahei', sans-serif;
+            background: var(--dark);
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0 20px;
+            height: var(--nav-height);
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--nav-height) + 40px) 20px 40px;
+        }
+
+        /* 资讯频道专属样式 */
+        .news-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .news-header h1 {
+            font-size: 2.8rem;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .news-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: var(--bg-gradient);
+            mask: linear-gradient(#000 0 0) padding-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask: linear-gradient(#000 0 0) padding-box,
+                linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+            border-radius: 15px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
+        }
+
+        .news-card:hover::before {
+            opacity: 1;
+        }
+
+        .news-thumb {
+            height: 180px;
+            border-radius: 10px;
+            background: var(--bg-gradient);
+        }
+
+        .news-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .news-card {
+                grid-template-columns: 1fr;
+            }
+
+            .news-thumb {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="container">
+            <div class="logo">ROBOT INDUSTRY</div>
+            <div class="nav-menu">
+                <a href="index.html">首页</a>
+                <a href="news.html" class="active">行业资讯</a>
+                <a href="products.html">产品库</a>
+                <a href="jobs.html">人才招聘</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="news-header">
+            <h1>行业资讯</h1>
+            <div class="search-box">
+                <input type="text" placeholder="搜索行业资讯..." class="search-input">
+            </div>
+        </header>
+
+        <section class="news-list">
+            <article class="news-card">
+                <div class="news-thumb"></div>
+                <div class="news-content">
+                    <h3>2024全球机器人产业峰会盛大开幕</h3>
+                    <div class="meta-info">
+                        <span>2024-03-15</span> |
+                        <span class="tag">展会动态</span> |
+                        <span>1520次浏览</span>
+                    </div>
+                    <p>本次峰会汇聚全球顶尖机器人企业，展示最新人形机器人、工业自动化解决方案和AI核心技术...</p>
+                </div>
+            </article>
+            <!-- 更多资讯条目 -->
+        </section>
+
+
+        <!-- 人才招聘频道核心代码 -->
+        <section class="job-list">
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>高级机器人算法工程师</h3>
+                    <div class="salary">35-60K·15薪</div>
+                </div>
+                <div class="company-info">
+                    <span>上海机器人科技</span>
+                    <span>D轮以上</span>
+                </div>
+                <div class="job-tags">
+                    <span>硕士以上</span>
+                    <span>5-10年经验</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品库频道核心代码 -->
+        <section class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="badge">新品</div>
+                </div>
+                <div class="product-info">
+                    <h3>智能焊接机器人 X300</h3>
+                    <div class="price">¥ 328,000</div>
+                    <div class="specs">
+                        <span>工作半径：2000mm</span>
+                        <span>负载：20kg</span>
+                    </div>
+                    <button class="cart-btn">加入询价单</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 供应商频道完整代码（结构相似，部分样式调整） -->
+        <section class="supplier-list">
+            <div class="supplier-card">
+                <div class="supplier-logo"></div>
+                <div class="supplier-info">
+                    <h3>上海智能机器人有限公司</h3>
+                    <div class="supplier-meta">
+                        <span class="rating">★★★★☆</span>
+                        <span class="location">中国·上海</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">工业机器人</span>
+                        <span class="tag">ISO认证</span>
+                    </div>
+                    <p>专业从事工业机器人研发生产，提供智能制造解决方案...</p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 智能机器人产业平台</p>
+        </div>
+    </footer>
+    <script>
+        // 公共交互功能
+        document.addEventListener('DOMContentLoaded', () => {
+            // 卡片延迟加载
+            const cards = document.querySelectorAll('.news-card, .product-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // 动态搜索功能
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', debounce(searchHandler, 300));
+        });
+
+        function debounce(func, wait) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        function searchHandler(e) {
+            const keyword = e.target.value.toLowerCase();
+            // 实现搜索过滤逻辑
+        }
+    </script>
+</body>
+
+</html>
