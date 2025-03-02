@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记事本</title>
+    <style>
+        /* 全局样式，采用故宫配色 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EBE7E0;
+            color: #333;
+        }
+
+        /* 整体容器布局，使用 flex 实现左右分栏 */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* 左侧面板样式 */
+        .left-panel {
+            flex: 1 1 30%;
+            min-width: 250px;
+            background-color: #F5EBE0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* 右侧面板样式 */
+        .right-panel {
+            flex: 1 1 60%;
+            min-width: 300px;
+            background-color: #F5EBE0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 分类选择器样式 */
+        .category-selector {
+            margin-bottom: 20px;
+        }
+
+        .category-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #9D7B6F;
+            background-color: #fff;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .category-selector select:hover {
+            border-color: #C69C6D;
+        }
+
+        /* 搜索框样式 */
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #9D7B6F;
+            background-color: #fff;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:hover {
+            border-color: #C69C6D;
+        }
+
+        /* 列表样式 */
+        .note-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .note-list li {
+            border: 1px solid #9D7B6F;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .note-list li:hover {
+            background-color: #F5EBE0;
+            transform: scale(1.02);
+        }
+
+        /* 分页样式 */
+        .pagination {
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin-right: 5px;
+            padding: 8px 12px;
+            border: 1px solid #9D7B6F;
+            background-color: #fff;
+            color: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background-color: #F5EBE0;
+        }
+
+        .pagination button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        /* 编辑区域样式 */
+        .editor {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .editor textarea {
+            width: calc(100% - 22px);
+            height: 300px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #9D7B6F;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        .editor button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #C69C6D;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .editor button:hover {
+            background-color: #9D7B6F;
+        }
+
+        /* 伸缩按钮样式 */
+        .toggle-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #003366; /* 墨蓝色 */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* 字数统计样式 */
+        .word-count {
+            color: #003366; /* 墨蓝色 */
+            font-size: 0.9em;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
+
+        /* 手机屏幕样式 */
+        @media (max-width: 768px) {
+            .left-panel {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 250px;
+                height: 100vh;
+                z-index: 9;
+            }
+
+            .left-panel.show {
+                left: 0;
+            }
+
+            .right-panel {
+                flex: 1 1 100%;
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+
+            /* 左侧栏展开时隐藏伸缩按钮 */
+            .left-panel.show + .toggle-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="toggle-btn" onclick="toggleLeftPanel()">☰</button>
+    <div class="container">
+        <!-- 左侧面板：分类和列表 -->
+        <div class="left-panel" id="left-panel">
+            <!-- 分类选择器 -->
+            <div class="category-selector">
+                <label for="category">分类:</label>
+                <select id="category">
+                    <option value="all">全部</option>
+                    <option value="工作">工作</option>
+                    <option value="生活">生活</option>
+                </select>
+            </div>
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="搜索记事" oninput="filterNotes()">
+            </div>
+            <!-- 记事本列表 -->
+            <ul class="note-list" id="note-list"></ul>
+            <!-- 分页按钮 -->
+            <div class="pagination" id="pagination"></div>
+        </div>
+        <!-- 右侧面板：内容显示和编辑 -->
+        <div class="right-panel">
+            <!-- 编辑区域 -->
+            <div class="editor" id="editor">
+                <textarea id="note-content" oninput="updateWordCount()"></textarea>
+                <div class="word-count" id="word-count">字数: 0</div>
+                <button onclick="saveNote()">保存</button>
+                <button onclick="cancelEdit()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟两百条记事记录
+        const notes = [];
+        for (let i = 1; i <= 200; i++) {
+            const category = i % 2 === 0 ? '工作' : '生活';
+            notes.push({ id: i, category, content: `记事 ${i}` });
+        }
+
+        // 每页显示的记事数量
+        const itemsPerPage = 10;
+        // 当前页码
+        let currentPage = 1;
+        // 当前选择的分类
+        let currentCategory = 'all';
+        // 当前搜索关键词
+        let currentSearch = '';
+        // 当前编辑的记事 ID
+        let currentNoteId = null;
+
+        // 渲染记事本列表
+        function renderNoteList() {
+            const noteList = document.getElementById('note-list');
+            noteList.innerHTML = '';
+
+            // 根据分类和搜索关键词过滤记事
+            const filteredNotes = notes.filter(note => {
+                const categoryMatch = currentCategory === 'all' || note.category === currentCategory;
+                const searchMatch = note.content.toLowerCase().includes(currentSearch.toLowerCase());
+                return categoryMatch && searchMatch;
+            });
+
+            // 计算当前页的起始和结束索引
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // 渲染当前页的记事
+            for (let i = startIndex; i < endIndex && i < filteredNotes.length; i++) {
+                const note = filteredNotes[i];
+                const li = document.createElement('li');
+                li.textContent = note.content;
+                li.addEventListener('click', () => editNote(note.id));
+                noteList.appendChild(li);
+            }
+
+            // 渲染分页按钮
+            renderPagination(filteredNotes.length);
+        }
+
+        // 渲染分页按钮
+        function renderPagination(totalItems) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            // 限制显示的分页按钮数量
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = startPage + maxVisiblePages - 1;
+            if (endPage > totalPages) {
+                endPage = totalPages;
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    renderNoteList();
+                });
+                if (i === currentPage) {
+                    button.disabled = true;
+                }
+                pagination.appendChild(button);
+            }
+        }
+
+        // 编辑记事
+        function editNote(id) {
+            const editor = document.getElementById('editor');
+            const noteContent = document.getElementById('note-content');
+            const note = notes.find(note => note.id === id);
+
+            if (note) {
+                currentNoteId = id;
+                noteContent.value = note.content;
+                editor.style.display = 'block';
+                updateWordCount();
+            }
+        }
+
+        // 保存记事
+        function saveNote() {
+            const noteContent = document.getElementById('note-content').value;
+            const note = notes.find(note => note.id === currentNoteId);
+
+            if (note) {
+                note.content = noteContent;
+                renderNoteList();
+            }
+
+            cancelEdit();
+        }
+
+        // 取消编辑
+        function cancelEdit() {
+            const editor = document.getElementById('editor');
+            editor.style.display = 'none';
+            currentNoteId = null;
+        }
+
+        // 分类选择器变化事件
+        document.getElementById('category').addEventListener('change', function () {
+            currentCategory = this.value;
+            currentPage = 1;
+            renderNoteList();
+        });
+
+        // 搜索记事
+        function filterNotes() {
+            currentSearch = document.getElementById('search-input').value;
+            currentPage = 1;
+            renderNoteList();
+        }
+
+        // 更新字数统计
+        function updateWordCount() {
+            const noteContent = document.getElementById('note-content');
+            const wordCountElement = document.getElementById('word-count');
+            const count = noteContent.value.length;
+            wordCountElement.textContent = `字数: ${count}`;
+        }
+
+        // 初始化记事本列表
+        renderNoteList();
+
+        // 伸缩左侧面板
+        function toggleLeftPanel() {
+            const leftPanel = document.getElementById('left-panel');
+            leftPanel.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

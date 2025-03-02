@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>智能机器人产业平台 - 行业资讯频道</title>
+    <title>智能机器人产业平台 - 产品库</title>
     <style>
         :root {
             --primary: #00f7ff;
@@ -144,8 +144,8 @@
             transform: scale(1.1);
         }
 
-        /* 资讯列表 */
-        .news-list {
+        /* 产品列表 */
+        .product-list {
             max-width: 1200px;
             width: 100%;
             display: grid;
@@ -153,7 +153,7 @@
             gap: 2rem;
         }
 
-        .news-card {
+        .product-card {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
             border-radius: 20px;
@@ -164,7 +164,7 @@
             overflow: hidden;
         }
 
-        .news-card::before {
+        .product-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -180,12 +180,12 @@
             opacity: 0;
         }
 
-        .news-card:hover {
+        .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
         }
 
-        .news-card:hover::before {
+        .product-card:hover::before {
             opacity: 0.3;
             animation: borderFlow 3s linear infinite;
         }
@@ -198,6 +198,14 @@
             100% {
                 transform: rotate(45deg) translate(30%, 30%);
             }
+        }
+
+        /* 色块代替图片 */
+        .product-color-block {
+            width: 100%;
+            height: 150px;
+            background: var(--bg-gradient);
+            margin-bottom: 1rem;
         }
 
         /* 分页 */
@@ -250,7 +258,7 @@
                 display: block;
             }
 
-            .news-card {
+            .product-card {
                 padding: 1.5rem;
             }
         }
@@ -272,7 +280,7 @@
                 padding: 1rem 1.5rem;
             }
 
-            .news-list {
+            .product-list {
                 margin: 3rem auto;
                 gap: 1.5rem;
             }
@@ -283,11 +291,11 @@
                 padding: 0 15px;
             }
 
-            .news-card h3 {
+            .product-card h3 {
                 font-size: 1.1rem;
             }
 
-            .news-card p {
+            .product-card p {
                 font-size: 0.9rem;
             }
 
@@ -301,49 +309,50 @@
 <body>
     <nav class="nav-bar">
         <div class="nav-container">
-            <div class="logo">ROBOT INDUSTRY - 行业资讯</div>
+            <div class="logo">ROBOT INDUSTRY - 产品库</div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <div class="nav-menu">
-                <a href="#news">行业资讯</a>
-                <a href="#suppliers">供应商</a>
-                <a href="#products">产品库</a>
-                <a href="#jobs">人才招聘</a>
+                <a href="index.html">首页</a>
+                <a href="news.html">行业资讯</a>
+                <a href="suppliers.html">供应商</a>
+                <a href="products.html" class="active">产品库</a>
+                <a href="jobs.html">人才招聘</a>
             </div>
         </div>
     </nav>
 
     <section class="main-content">
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="搜索行业资讯...">
+            <input type="text" id="searchInput" placeholder="搜索产品...">
         </div>
 
         <div class="category-list">
-            <div class="category-item">技术动态</div>
-            <div class="category-item">产品发布</div>
-            <div class="category-item">企业动态</div>
-            <div class="category-item">行业报告</div>
+            <div class="category-item">工业机器人</div>
+            <div class="category-item">服务机器人</div>
+            <div class="category-item">特种机器人</div>
+            <div class="category-item">教育机器人</div>
         </div>
 
-        <div class="news-list">
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 最新机器人技术突破</h3>
-                <p>某公司宣布在机器人智能控制领域取得重大突破，将推动行业发展。</p>
+        <div class="product-list">
+            <div class="product-card">
+                <div class="product-color-block"></div>
+                <h3>工业六轴机器人</h3>
+                <p>高精度、高负载，适用于多种工业场景。</p>
             </div>
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 新型机器人产品发布</h3>
-                <p>一款全新的工业机器人正式发布，具备更高的精度和效率。</p>
+            <div class="product-card">
+                <div class="product-color-block"></div>
+                <h3>餐厅服务机器人</h3>
+                <p>具备送餐、引导等功能，提升餐厅服务效率。</p>
             </div>
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 机器人企业战略合作</h3>
-                <p>两家领先的机器人企业达成战略合作，共同开拓市场。</p>
+            <div class="product-card">
+                <div class="product-color-block"></div>
+                <h3>防爆巡检机器人</h3>
+                <p>可在危险环境下进行巡检工作，保障安全。</p>
             </div>
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 行业年度报告发布</h3>
-                <p>权威机构发布了智能机器人行业年度报告，解读行业趋势。</p>
+            <div class="product-card">
+                <div class="product-color-block"></div>
+                <h3>编程教育机器人套件</h3>
+                <p>适合儿童和青少年学习编程和机器人知识。</p>
             </div>
         </div>
 
@@ -371,7 +380,7 @@
             const navMenu = document.querySelector('.nav-menu');
             const menuToggle = document.querySelector('.menu-toggle');
 
-            if (!navMenu.contains(e.target) &&!menuToggle.contains(e.target)) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
             }
         });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>智能机器人产业平台 - 行业资讯频道</title>
+    <title>智能机器人产业平台 - 供应商频道</title>
     <style>
         :root {
             --primary: #00f7ff;
@@ -94,6 +94,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             background: radial-gradient(circle at center,
                     rgba(0, 247, 255, 0.1) 0%,
                     rgba(10, 10, 46, 1) 70%);
@@ -127,33 +128,35 @@
         .category-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
             justify-content: center;
+            gap: 1rem;
             margin-bottom: 2rem;
         }
 
         .category-item {
-            background: var(--bg-gradient);
-            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.2rem;
             border-radius: 20px;
-            cursor: pointer;
+            border: 1px solid rgba(0, 247, 255, 0.2);
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .category-item:hover {
-            transform: scale(1.1);
+            background: var(--bg-gradient);
+            box-shadow: 0 0 15px var(--primary);
         }
 
-        /* 资讯列表 */
-        .news-list {
+        /* 供应商列表 */
+        .supplier-list {
             max-width: 1200px;
-            width: 100%;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 2rem;
         }
 
-        .news-card {
+        .supplier-card {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
             border-radius: 20px;
@@ -164,7 +167,7 @@
             overflow: hidden;
         }
 
-        .news-card::before {
+        .supplier-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -180,12 +183,12 @@
             opacity: 0;
         }
 
-        .news-card:hover {
+        .supplier-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
         }
 
-        .news-card:hover::before {
+        .supplier-card:hover::before {
             opacity: 0.3;
             animation: borderFlow 3s linear infinite;
         }
@@ -200,24 +203,35 @@
             }
         }
 
+        /* 色块 */
+        .color-block {
+            width: 100%;
+            height: 150px;
+            background: var(--bg-gradient);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
         /* 分页 */
         .pagination {
             display: flex;
-            gap: 1rem;
             justify-content: center;
+            gap: 1rem;
             margin: 2rem 0;
         }
 
         .page-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 247, 255, 0.2);
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .page-item:hover {
             background: var(--bg-gradient);
+            box-shadow: 0 0 15px var(--primary);
         }
 
         /* 页脚 */
@@ -250,7 +264,7 @@
                 display: block;
             }
 
-            .news-card {
+            .supplier-card {
                 padding: 1.5rem;
             }
         }
@@ -272,7 +286,7 @@
                 padding: 1rem 1.5rem;
             }
 
-            .news-list {
+            .supplier-list {
                 margin: 3rem auto;
                 gap: 1.5rem;
             }
@@ -283,11 +297,11 @@
                 padding: 0 15px;
             }
 
-            .news-card h3 {
+            .supplier-card h3 {
                 font-size: 1.1rem;
             }
 
-            .news-card p {
+            .supplier-card p {
                 font-size: 0.9rem;
             }
 
@@ -301,11 +315,11 @@
 <body>
     <nav class="nav-bar">
         <div class="nav-container">
-            <div class="logo">ROBOT INDUSTRY - 行业资讯</div>
+            <div class="logo">ROBOT INDUSTRY</div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <div class="nav-menu">
                 <a href="#news">行业资讯</a>
-                <a href="#suppliers">供应商</a>
+                <a href="#suppliers" class="active">供应商</a>
                 <a href="#products">产品库</a>
                 <a href="#jobs">人才招聘</a>
             </div>
@@ -314,36 +328,46 @@
 
     <section class="main-content">
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="搜索行业资讯...">
+            <input type="text" id="searchInput" placeholder="搜索供应商...">
         </div>
 
         <div class="category-list">
-            <div class="category-item">技术动态</div>
-            <div class="category-item">产品发布</div>
-            <div class="category-item">企业动态</div>
-            <div class="category-item">行业报告</div>
+            <div class="category-item">机械臂供应商</div>
+            <div class="category-item">视觉系统供应商</div>
+            <div class="category-item">移动机器人供应商</div>
+            <div class="category-item">控制系统供应商</div>
         </div>
 
-        <div class="news-list">
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 最新机器人技术突破</h3>
-                <p>某公司宣布在机器人智能控制领域取得重大突破，将推动行业发展。</p>
+        <div class="supplier-list">
+            <div class="supplier-card">
+                <div class="color-block"></div>
+                <h3>供应商A</h3>
+                <p>提供高质量机械臂产品</p>
             </div>
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 新型机器人产品发布</h3>
-                <p>一款全新的工业机器人正式发布，具备更高的精度和效率。</p>
+            <div class="supplier-card">
+                <div class="color-block"></div>
+                <h3>供应商B</h3>
+                <p>专注于视觉系统研发</p>
             </div>
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 机器人企业战略合作</h3>
-                <p>两家领先的机器人企业达成战略合作，共同开拓市场。</p>
+            <div class="supplier-card">
+                <div class="color-block"></div>
+                <h3>供应商C</h3>
+                <p>移动机器人领域的领导者</p>
             </div>
-            <div class="news-card">
-                <div class="news-color-block" style="width: 100%; height: 150px; background: var(--bg-gradient); margin-bottom: 1rem;"></div>
-                <h3>📰 行业年度报告发布</h3>
-                <p>权威机构发布了智能机器人行业年度报告，解读行业趋势。</p>
+            <div class="supplier-card">
+                <div class="color-block"></div>
+                <h3>供应商D</h3>
+                <p>先进的控制系统供应商</p>
+            </div>
+            <div class="supplier-card">
+                <div class="color-block"></div>
+                <h3>供应商E</h3>
+                <p>全方位机器人解决方案</p>
+            </div>
+            <div class="supplier-card">
+                <div class="color-block"></div>
+                <h3>供应商F</h3>
+                <p>优质机器人零部件供应商</p>
             </div>
         </div>
 
@@ -351,8 +375,8 @@
             <div class="page-item">1</div>
             <div class="page-item">2</div>
             <div class="page-item">3</div>
-            <div class="page-item">...</div>
-            <div class="page-item">10</div>
+            <div class="page-item">4</div>
+            <div class="page-item">5</div>
         </div>
     </section>
 
