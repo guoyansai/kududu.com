@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Asai.cc" />
+    <meta name="description" content="给张总朋友做的模特列表页面，支持筛选、列表、弹窗等功能，红蓝色块替换成模特照片，交互可自行适当微调。">
+    <title>模特库页面设计</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ebf8ff;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            margin-right: 25px;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff6d00;
+        }
+
+        .right-nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .search-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 40px 12px 20px;
+            border: 2px solid #e0eafc;
+            border-radius: 24px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #ff6d00;
+        }
+
+        .search-box::after {
+            content: '🔎';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .filter-group label {
+            min-width: 80px;
+            color: #666;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: #ff6d00;
+            color: white;
+            border-color: #ff6d00;
+        }
+
+        .filter-extra {
+            display: none;
+        }
+
+        .filter-extra.show {
+            display: block;
+        }
+
+        .action-btns {
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .action-btns button {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-btns button:hover {
+            background: #f5f5f5;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .model-img {
+            width: 100%;
+            height: 328px;
+            background: linear-gradient(135deg, #ffb6e8 0%, #88d6ff 100%);
+        }
+
+        .card-info {
+            z-index: 1;
+            padding: 15px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(0deg, #00000028 0%, #00000000 100%);
+        }
+
+        .card-info p {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
+        .hover-actions {
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .model-card:hover .hover-actions {
+            transform: translateY(0);
+        }
+
+        .hover-actions p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .page-btn {
+            padding: 8px 16px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn.active,
+        .page-btn:hover {
+            background: #ff6d00;
+            color: white;
+            border-color: #ff6d00;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            z-index: 10;
+        }
+
+        .header-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #ffb6e8 0%, #88d6ff 100%);
+            border-radius: 10px 10px 0 0;
+            z-index: 1;
+        }
+
+        .creator-info {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .creator-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffb6e8 0%, #88d6ff 100%);
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        .creator-details h2 {
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .creator-details p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .top-actions {
+            position: absolute;
+            cursor: pointer;
+            top: 88px;
+            right: 20px;
+            z-index: 2;
+        }
+
+        .top-actions button {
+            margin-left: 10px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .top-actions button:hover {
+            background: #f5f5f5;
+        }
+
+        .category-tags {
+            margin: 20px 0;
+        }
+
+        .category-tags button {
+            padding: 6px 12px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .category-tags button:hover {
+            background: #f5f5f5;
+        }
+
+        .video-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+            max-height: calc(100vh - 400px);
+            overflow: auto;
+        }
+
+        .video-item {
+            position: relative;
+        }
+
+        .video-item .video-placeholder {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #ffb6e8 0%, #88d6ff 100%);
+        }
+
+        .video-item p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .modal-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="nav">
+            <div class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">模特库</a>
+                <a href="#">会员</a>
+            </div>
+            <div class="right-nav">
+                <a href="#">工作台</a> |
+                <a href="#">登录</a>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="可输入名称或者其他关键字搜索...">
+        </div>
+
+        <div class="filter-group">
+            <label>适合平台</label>
+            <button class="filter-btn" data-group="platform">Amazon</button>
+            <button class="filter-btn" data-group="platform">TikTok</button>
+            <button class="filter-btn" data-group="platform">其他</button>
+            <button class="filter-btn" data-group="platform">APP/解说类</button>
+        </div>
+
+        <div class="filter-group">
+            <label>国家</label>
+            <button class="filter-btn" data-group="country">美国</button>
+            <button class="filter-btn" data-group="country">加拿大</button>
+            <button class="filter-btn" data-group="country">德国</button>
+            <button class="filter-btn" data-group="country">法国</button>
+            <button class="filter-btn" data-group="country">意大利</button>
+            <button class="filter-btn" data-group="country">西班牙</button>
+            <button class="filter-btn" data-group="country">英国</button>
+        </div>
+
+        <div class="filter-group">
+            <label>类型</label>
+            <button class="filter-btn" data-group="type">素人创作者</button>
+            <button class="filter-btn" data-group="type">亚马逊影响者</button>
+        </div>
+
+        <div class="filter-extra" id="extraFilter">
+            <div class="filter-group">
+                <label>性别</label>
+                <button class="filter-btn" data-group="gender">男性</button>
+                <button class="filter-btn" data-group="gender">女性</button>
+            </div>
+            <div class="filter-group">
+                <label>年龄层</label>
+                <button class="filter-btn" data-group="age">婴幼儿</button>
+                <button class="filter-btn" data-group="age">儿童</button>
+                <button class="filter-btn" data-group="age">成年人</button>
+                <button class="filter-btn" data-group="age">老年人</button>
+            </div>
+            <div class="filter-group">
+                <label>类目</label>
+                <button class="filter-btn" data-group="category">女性时尚</button>
+                <button class="filter-btn" data-group="category">男性时尚</button>
+                <button class="filter-btn" data-group="category">母婴/儿童</button>
+                <button class="filter-btn" data-group="category">运动与户外</button>
+                <button class="filter-btn" data-group="category">美容和个人护理</button>
+                <button class="filter-btn" data-group="category">家居用品</button>
+                <button class="filter-btn" data-group="category">家电家装</button>
+                <button class="filter-btn" data-group="category">宠物用品</button>
+                <button class="filter-btn" data-group="category">汽车</button>
+                <button class="filter-btn" data-group="category">3C数码</button>
+                <button class="filter-btn" data-group="category">其他</button>
+            </div>
+        </div>
+
+        <div class="action-btns">
+            <button id="resetBtn">重置</button>
+            <button id="toggleFilter">收起筛选 ^</button>
+        </div>
+    </div>
+
+    <div class="card-container" id="cardContainer">
+        <!-- 这里开始循环列表 -->
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>
+        <div class="model-card" data-id="099489" data-name="布莱恩" data-country="美国" data-type="亚马逊影响者"
+            data-categories='["男性时尚", "运动与户外", "3C数码"]' data-videos='["运动鞋", "运动背包", "手机"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>布莱恩</p>
+                <p>☺ 查看案例</p>
+                <p>★ 加入收藏</p>
+                <p>☝ 选ta拍摄</p>
+            </div>
+            <div class="card-info">
+                <p>布莱恩</p>
+                <p>📍 美国 ◼ 亚马逊影响者</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination" id="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+    </div>
+
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="header-gradient"></div>
+            <div class="top-actions">
+                <button onclick="addToBlacklist()">加入黑名单</button>
+                <button onclick="addToFavorites()">加入收藏</button>
+                <button onclick="selectForShoot()">选ta拍摄</button>
+            </div>
+            <div class="creator-info">
+                <div class="creator-avatar"></div>
+                <div class="creator-details">
+                    <h2 id="creatorName"></h2>
+                    <p id="creatorId">ID: 099488</p>
+                    <p id="creatorCountryType">美国 ◼ 素人创作者</p>
+                </div>
+            </div>
+            <div class="category-tags" id="categoryTags"></div>
+            <div class="video-list" id="videoList"></div>
+            <div class="modal-pagination" id="modalPagination"></div>
+        </div>
+    </div>
+
+    <script>
+        // 筛选按钮交互（精准单选）
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const group = btn.dataset.group;
+                filterBtns.forEach(b => {
+                    if (b.dataset.group === group) {
+                        b.classList.remove('active');
+                    }
+                });
+                btn.classList.add('active');
+            });
+        });
+
+        // 重置筛选
+        const resetBtn = document.getElementById('resetBtn');
+        resetBtn.addEventListener('click', () => {
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+        });
+
+        // 展开/收起筛选
+        const toggleFilter = document.getElementById('toggleFilter');
+        const extraFilter = document.getElementById('extraFilter');
+        toggleFilter.addEventListener('click', () => {
+            extraFilter.classList.toggle('show');
+            if (toggleFilter.textContent.includes('收起')) {
+                toggleFilter.textContent = '展开筛选 ▼';
+            } else {
+                toggleFilter.textContent = '收起筛选 ^';
+            }
+        });
+
+        // 弹窗交互
+        const modal = document.getElementById('detailModal');
+        const cards = document.querySelectorAll('.model-card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.dataset.id;
+                const name = card.dataset.name;
+                const country = card.dataset.country;
+                const type = card.dataset.type;
+                const categories = JSON.parse(card.dataset.categories);
+                const videos = JSON.parse(card.dataset.videos);
+
+                document.getElementById('creatorName').textContent = name;
+                document.getElementById('creatorId').textContent = `ID: ${id}`;
+                document.getElementById('creatorCountryType').textContent = `${country} ◼ ${type}`;
+
+                const categoryTags = document.getElementById('categoryTags');
+                categoryTags.innerHTML = '';
+                categories.forEach(category => {
+                    const tag = document.createElement('button');
+                    tag.textContent = category;
+                    categoryTags.appendChild(tag);
+                });
+
+                const videoList = document.getElementById('videoList');
+                videoList.innerHTML = '';
+                const itemsPerPage = 6;
+                let currentPage = 1;
+
+                function showPage(page) {
+                    const startIndex = (page - 1) * itemsPerPage;
+                    const endIndex = startIndex + itemsPerPage;
+                    const currentVideos = videos.slice(startIndex, endIndex);
+                    currentVideos.forEach(video => {
+                        const videoItem = document.createElement('div');
+                        videoItem.classList.add('video-item');
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'video-placeholder';
+                        const p = document.createElement('p');
+                        p.textContent = video;
+                        videoItem.appendChild(placeholder);
+                        videoItem.appendChild(p);
+                        videoList.appendChild(videoItem);
+                    });
+                }
+
+                function updatePagination() {
+                    const totalPages = Math.ceil(videos.length / itemsPerPage);
+                    const modalPagination = document.getElementById('modalPagination');
+                    modalPagination.innerHTML = '';
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageBtn = document.createElement('button');
+                        pageBtn.textContent = i;
+                        pageBtn.classList.add('page-btn');
+                        if (i === currentPage) {
+                            pageBtn.classList.add('active');
+                        }
+                        pageBtn.addEventListener('click', () => {
+                            currentPage = i;
+                            videoList.innerHTML = '';
+                            showPage(currentPage);
+                            updatePagination();
+                        });
+                        modalPagination.appendChild(pageBtn);
+                    }
+                }
+
+                showPage(currentPage);
+                updatePagination();
+
+                modal.style.display = 'flex';
+            });
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // 模拟按钮功能
+        function addToBlacklist() {
+            alert('已加入黑名单');
+        }
+        function addToFavorites() {
+            alert('已加入收藏');
+        }
+        function selectForShoot() {
+            alert('已选ta拍摄');
+        }
+    </script>
+</body>
+
+</html>
