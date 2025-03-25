@@ -442,6 +442,70 @@
             display: none;
         }
     </style>
+    <script>
+        function apiReq({
+            url,
+            method = 'GET',
+            data = {}
+        }) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open(method, url, true);
+
+                if (method === 'POST') {
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                }
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            try {
+                                const responseData = JSON.parse(xhr.responseText);
+                                resolve(responseData);
+                            } catch (error) {
+                                reject(new Error('响应数据解析失败'));
+                            }
+                        } else {
+                            reject(new Error(`请求失败，状态码：${xhr.status}`));
+                        }
+                    }
+                };
+
+                let sendData = '';
+                if (method === 'POST' && data) {
+                    sendData = Object.entries(data).map(([key, value]) =>
+                        encodeURIComponent(key) + '=' + encodeURIComponent(value)
+                    ).join('&');
+                }
+
+                xhr.send(sendData);
+            });
+        }
+
+
+        // API示例调用
+        function searchSubmit() {
+            apiReq({
+                url: 'http://129.204.180.158:8081/openapi/category/list',
+                method: 'GET'
+            })
+                .then(res => {
+                    console.log('成功', res);
+                    // document.write(res.data)
+                })
+                .catch(err => console.error('失败', err.message));
+
+            apiReq({
+                url: 'http://129.204.180.158:8081/openapi/celebrity/list',
+                method: 'POST'
+            })
+                .then(res => {
+                    console.log('成功', res);
+                    // document.write(res.data)
+                })
+                .catch(err => console.error('失败', err.message));
+        }
+    </script>
 </head>
 
 <body>
