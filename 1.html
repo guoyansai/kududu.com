@@ -108,10 +108,10 @@
             border-color: #ff6d00;
         }
 
-        .search-box-ad::after,
-        .search-box::after {
-            content: '🔎';
+        .search-box-ad .btn,
+        .search-box .btn {
             position: absolute;
+            cursor: pointer;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
@@ -490,20 +490,30 @@
                 method: 'GET'
             })
                 .then(res => {
-                    console.log('成功', res);
+                    console.log('成功!获取所属分类', res);
                     // document.write(res.data)
                 })
-                .catch(err => console.error('失败', err.message));
+                .catch(err => console.error('失败!获取所属分类', err.message));
 
             apiReq({
                 url: 'http://129.204.180.158:8081/openapi/celebrity/list',
                 method: 'POST'
             })
                 .then(res => {
-                    console.log('成功', res);
+                    console.log('成功!2.查询网红列表', res);
                     // document.write(res.data)
                 })
-                .catch(err => console.error('失败', err.message));
+                .catch(err => console.error('失败!2.查询网红列表', err.message));
+
+            apiReq({
+                url: 'http://129.204.180.158:8081/openapi/celebrity/userid',
+                method: 'GET'
+            })
+                .then(res => {
+                    console.log('成功!获取网红详细信息', res);
+                    // document.write(res.data)
+                })
+                .catch(err => console.error('失败!获取网红详细信息', err.message));
         }
     </script>
 </head>
@@ -514,6 +524,7 @@
             <img src="banner.png" /><br />
             <div class="search-box-ad">
                 <input type="text" placeholder="可输入名称或者其他关键字搜索...">
+                <div class="btn" onclick="searchSubmit()">🔎</div>
             </div>
         </div>
     </div>
@@ -531,6 +542,7 @@
 
         <div class="search-box">
             <input type="text" id="searchinput" placeholder="可输入名称或者其他关键字搜索...">
+            <div class="btn" onclick="searchSubmit()">🔎</div>
         </div>
 
         <div class="filter-group">
@@ -609,6 +621,7 @@
                 <p>📍 美国 ◼ 素人创作者</p>
             </div>
         </div>`
+            // 循环数据的示例
             for (let i = 0; i < 20; i++) {
                 document.write(mylist);
             }  </script>
