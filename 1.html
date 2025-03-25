@@ -18,6 +18,42 @@
             background-color: #ebf8ff;
         }
 
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg,
+                    #0054d6 0%,
+                    #71f7e6 30%,
+                    #00a9e0 60%,
+                    #0054d6 100%);
+        }
+
+        .banner>div {
+            text-align: center;
+            width: 100%;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        .banner img {
+            max-width: 100%;
+            height: 300px;
+        }
+
+        .banner .search-box-ad {
+            margin-top: 58px;
+            width: 70%;
+            display: inline-block;
+        }
+
         .header {
             background: white;
             padding: 20px;
@@ -31,7 +67,7 @@
             margin-bottom: 20px;
         }
 
-        .nav-links a {
+        .right-nav a {
             text-decoration: none;
             color: #333;
             margin-right: 25px;
@@ -39,7 +75,7 @@
             position: relative;
         }
 
-        .nav-links a.active::after {
+        .right-nav a.active::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -49,17 +85,14 @@
             background: #ff6d00;
         }
 
-        .right-nav a {
-            color: #666;
-            text-decoration: none;
-            margin-left: 15px;
-        }
 
+        .search-box-ad,
         .search-box {
             position: relative;
             margin: 20px 0;
         }
 
+        .search-box-ad input,
         .search-box input {
             width: 100%;
             padding: 12px 40px 12px 20px;
@@ -70,10 +103,12 @@
             transition: border-color 0.3s;
         }
 
+        .search-box-ad input:focus,
         .search-box input:focus {
             border-color: #ff6d00;
         }
 
+        .search-box-ad::after,
         .search-box::after {
             content: '🔎';
             position: absolute;
@@ -410,15 +445,22 @@
 </head>
 
 <body>
+    <div id="banner" class="banner">
+        <div>
+            <img src="banner.png" /><br />
+            <div class="search-box-ad">
+                <input type="text" placeholder="可输入名称或者其他关键字搜索...">
+            </div>
+        </div>
+    </div>
     <div class="header">
         <div class="nav">
             <div class="nav-links">
+                <img src="logo.png" alt="logo" height="38">
+            </div>
+            <div class="right-nav">
                 <a href="#" class="active">首页</a>
                 <a href="#">模特库</a>
-            </div>
-            <div class="right-nav dis">
-                <a href="#">工作台</a> |
-                <a href="#">登录</a>
             </div>
         </div>
 
