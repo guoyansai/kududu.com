@@ -453,6 +453,7 @@
             </div>
         </div>
     </div>
+    <a name="top"></a>
     <div class="header">
         <div class="nav">
             <div class="nav-links">
@@ -465,7 +466,7 @@
         </div>
 
         <div class="search-box">
-            <input type="text" placeholder="可输入名称或者其他关键字搜索...">
+            <input type="text" id="searchinput" placeholder="可输入名称或者其他关键字搜索...">
         </div>
 
         <div class="filter-group">
@@ -852,6 +853,24 @@
     </div>
 
     <script>
+        // 关闭banner
+        const bannerDom = document.getElementById('banner');
+        const searchinputDom = document.getElementById('searchinput');
+        function closeBanner() {
+            bannerDom.style.display = 'none';
+        }
+        function closeBannerGoTop() {
+            closeBanner();
+            location.href = '#top'; // 跳转到顶部
+            searchinputDom.focus(); // 聚焦搜索框
+        }
+        bannerDom.addEventListener('click', closeBannerGoTop);
+        // 监听页面滚动事件
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 10) {
+                closeBanner();
+            }
+        });
         // 筛选按钮交互（精准单选）
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
