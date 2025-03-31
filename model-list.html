@@ -18,6 +18,11 @@
             background-color: #ebf8ff;
         }
 
+        .as-area {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
         .banner {
             position: fixed;
             top: 0;
@@ -177,6 +182,8 @@
         }
 
         .card-container {
+            max-width: 1440px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
@@ -212,6 +219,13 @@
         }
 
         .card-info p {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
+        .card-info div {
+            text-align: right;
             font-size: 16px;
             color: #ffffff;
             margin-top: 8px;
@@ -338,6 +352,7 @@
         }
 
         .creator-avatar {
+            cursor: pointer;
             width: 120px;
             height: 120px;
             border-radius: 50%;
@@ -348,6 +363,9 @@
             border: 4px solid white;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .creator-details h2 {
@@ -530,87 +548,87 @@
     </div>
     <a name="top"></a>
     <div class="header">
-        <div class="nav">
-            <div class="nav-links">
-                <img src="logo.png" alt="logo" height="38">
+        <div class="as-area">
+            <div class="nav">
+                <div class="nav-links">
+                    <img src="logo.png" alt="logo" height="38">
+                </div>
+                <div class="right-nav">
+                    <a href="#" class="active">首页</a>
+                    <a href="#">模特库</a>
+                </div>
             </div>
-            <div class="right-nav">
-                <a href="#" class="active">首页</a>
-                <a href="#">模特库</a>
+
+            <div class="search-box">
+                <input type="text" id="searchinput" placeholder="可输入名称或者其他关键字搜索...">
+                <div class="btn" onclick="searchSubmit()">🔎</div>
             </div>
-        </div>
 
-        <div class="search-box">
-            <input type="text" id="searchinput" placeholder="可输入名称或者其他关键字搜索...">
-            <div class="btn" onclick="searchSubmit()">🔎</div>
-        </div>
-
-        <div class="filter-group">
-            <label>适合平台</label>
-            <button class="filter-btn" data-group="platform">Amazon</button>
-            <button class="filter-btn" data-group="platform">TikTok</button>
-            <button class="filter-btn" data-group="platform">其他</button>
-            <button class="filter-btn" data-group="platform">APP/解说类</button>
-        </div>
-
-        <div class="filter-group">
-            <label>国家</label>
-            <button class="filter-btn" data-group="country">美国</button>
-            <button class="filter-btn" data-group="country">加拿大</button>
-            <button class="filter-btn" data-group="country">德国</button>
-            <button class="filter-btn" data-group="country">法国</button>
-            <button class="filter-btn" data-group="country">意大利</button>
-            <button class="filter-btn" data-group="country">西班牙</button>
-            <button class="filter-btn" data-group="country">英国</button>
-        </div>
-
-        <div class="filter-group">
-            <label>类型</label>
-            <button class="filter-btn" data-group="type">素人创作者</button>
-            <button class="filter-btn" data-group="type">亚马逊影响者</button>
-        </div>
-
-        <div class="filter-extra" id="extraFilter">
             <div class="filter-group">
-                <label>性别</label>
-                <button class="filter-btn" data-group="gender">男性</button>
-                <button class="filter-btn" data-group="gender">女性</button>
+                <label>适合平台</label>
+                <button class="filter-btn" data-group="platform">Amazon</button>
+                <button class="filter-btn" data-group="platform">TikTok</button>
+                <button class="filter-btn" data-group="platform">其他</button>
+                <button class="filter-btn" data-group="platform">APP/解说类</button>
             </div>
-            <div class="filter-group">
-                <label>年龄层</label>
-                <button class="filter-btn" data-group="age">婴幼儿</button>
-                <button class="filter-btn" data-group="age">儿童</button>
-                <button class="filter-btn" data-group="age">成年人</button>
-                <button class="filter-btn" data-group="age">老年人</button>
-            </div>
-            <div class="filter-group">
-                <label>类目</label>
-                <button class="filter-btn" data-group="category">女性时尚</button>
-                <button class="filter-btn" data-group="category">男性时尚</button>
-                <button class="filter-btn" data-group="category">母婴/儿童</button>
-                <button class="filter-btn" data-group="category">运动与户外</button>
-                <button class="filter-btn" data-group="category">美容和个人护理</button>
-                <button class="filter-btn" data-group="category">家居用品</button>
-                <button class="filter-btn" data-group="category">家电家装</button>
-                <button class="filter-btn" data-group="category">宠物用品</button>
-                <button class="filter-btn" data-group="category">汽车</button>
-                <button class="filter-btn" data-group="category">3C数码</button>
-                <button class="filter-btn" data-group="category">其他</button>
-            </div>
-        </div>
 
-        <div class="action-btns">
-            <button id="resetBtn">重置</button>
-            <button id="toggleFilter">收起筛选 ^</button>
+            <div class="filter-group">
+                <label>国家</label>
+                <button class="filter-btn" data-group="country">美国</button>
+                <button class="filter-btn" data-group="country">加拿大</button>
+                <button class="filter-btn" data-group="country">德国</button>
+                <button class="filter-btn" data-group="country">法国</button>
+                <button class="filter-btn" data-group="country">意大利</button>
+                <button class="filter-btn" data-group="country">西班牙</button>
+                <button class="filter-btn" data-group="country">英国</button>
+            </div>
+
+            <div class="filter-group">
+                <label>类型</label>
+                <button class="filter-btn" data-group="type">素人创作者</button>
+                <button class="filter-btn" data-group="type">亚马逊影响者</button>
+            </div>
+
+            <div class="filter-extra" id="extraFilter">
+                <div class="filter-group">
+                    <label>性别</label>
+                    <button class="filter-btn" data-group="gender">男性</button>
+                    <button class="filter-btn" data-group="gender">女性</button>
+                </div>
+                <div class="filter-group">
+                    <label>年龄层</label>
+                    <button class="filter-btn" data-group="age">婴幼儿</button>
+                    <button class="filter-btn" data-group="age">儿童</button>
+                    <button class="filter-btn" data-group="age">成年人</button>
+                    <button class="filter-btn" data-group="age">老年人</button>
+                </div>
+                <div class="filter-group">
+                    <label>类目</label>
+                    <button class="filter-btn" data-group="category">女性时尚</button>
+                    <button class="filter-btn" data-group="category">男性时尚</button>
+                    <button class="filter-btn" data-group="category">母婴/儿童</button>
+                    <button class="filter-btn" data-group="category">运动与户外</button>
+                    <button class="filter-btn" data-group="category">美容和个人护理</button>
+                    <button class="filter-btn" data-group="category">家居用品</button>
+                    <button class="filter-btn" data-group="category">家电家装</button>
+                    <button class="filter-btn" data-group="category">宠物用品</button>
+                    <button class="filter-btn" data-group="category">汽车</button>
+                    <button class="filter-btn" data-group="category">3C数码</button>
+                    <button class="filter-btn" data-group="category">其他</button>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button id="resetBtn">重置</button>
+                <button id="toggleFilter">收起筛选 ^</button>
+            </div>
         </div>
     </div>
 
     <div class="card-container" id="cardContainer">
         <!-- 这里开始循环列表 -->
         <script>
-            const mylist = `<div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
-            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
-            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            const mylist = `<div class="model-card" onclick="showModal()">
             <div class="model-img"></div>
             <div class="hover-actions">
                 <p>瓦妮莎</p>
@@ -618,19 +636,27 @@
             </div>
             <div class="card-info">
                 <p>瓦妮莎</p>
-                <p>📍 美国 ◼ 素人创作者</p>
+                <p>📍 美国 ◼ 素人📜 版权 ￥ 价格</p>
             </div>
         </div>`
+            // 或者这样：？？
+            // <p>📍 美国 ◼ 素人</p>
+            //         <div>📜 版权 ￥ 价格</div>
             // 循环数据的示例
             for (let i = 0; i < 20; i++) {
                 document.write(mylist);
-            }  </script>
+            }
+        </script>
     </div>
 
     <div class="pagination" id="pagination">
-        <button class="page-btn active">1</button>
-        <button class="page-btn">2</button>
+        <button class="page-btn">首页</button>
+        <button class="page-btn">上一页</button>
+        <button class="page-btn">1</button>
+        <button class="page-btn active">2</button>
         <button class="page-btn">3</button>
+        <button class="page-btn">下一页</button>
+        <button class="page-btn">尾页</button>
     </div>
 
     <div class="modal" id="detailModal">
@@ -643,19 +669,44 @@
                 <button onclick="selectForShoot()">选ta拍摄</button>
             </div>
             <div class="creator-info">
-                <div class="creator-avatar"></div>
+                <div class="creator-avatar" onclick="location.href='#link'">放头像</div>
                 <div class="creator-details">
-                    <h2 id="creatorName"></h2>
+                    <h2>瓦妮莎</h2>
                     <p id="creatorId">ID: 099488</p>
                     <p id="creatorCountryType">美国 ◼ 素人创作者</p>
                 </div>
             </div>
-            <div class="category-tags" id="categoryTags"></div>
-            <div class="video-list" id="videoList"></div>
-            <div class="modal-pagination" id="modalPagination"></div>
+            <div class="category-tags">
+                <button>女性时尚</button><button>美容和个人护理</button><button>母婴/儿童</button><button>宠物用品</button><button>家居用品</button>
+            </div>
+            <div class="video-list">
+                <div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>高跟鞋凉鞋</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>狗项圈</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>酒杯</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>狗项圈</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>酒杯</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>落地灯</p>
+                </div>
+            </div>
         </div>
     </div>
-
     <script>
         // 关闭banner
         const bannerDom = document.getElementById('banner');
@@ -667,6 +718,8 @@
             closeBanner();
             location.href = '#top'; // 跳转到顶部
             searchinputDom.focus(); // 聚焦搜索框
+            // 1.首次点击时触发查询事件
+            searchSubmit();
         }
         bannerDom.addEventListener('click', closeBannerGoTop);
         // 监听页面滚动事件
@@ -710,78 +763,7 @@
         // 弹窗交互
         const modal = document.getElementById('detailModal');
         const cards = document.querySelectorAll('.model-card');
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const id = card.dataset.id;
-                const name = card.dataset.name;
-                const country = card.dataset.country;
-                const type = card.dataset.type;
-                const categories = JSON.parse(card.dataset.categories);
-                const videos = JSON.parse(card.dataset.videos);
-
-                document.getElementById('creatorName').textContent = name;
-                document.getElementById('creatorId').textContent = `ID: ${id}`;
-                document.getElementById('creatorCountryType').textContent = `${country} ◼ ${type}`;
-
-                const categoryTags = document.getElementById('categoryTags');
-                categoryTags.innerHTML = '';
-                categories.forEach(category => {
-                    const tag = document.createElement('button');
-                    tag.textContent = category;
-                    categoryTags.appendChild(tag);
-                });
-
-                const videoList = document.getElementById('videoList');
-                videoList.innerHTML = '';
-                const itemsPerPage = 6;
-                let currentPage = 1;
-
-                function showPage(page) {
-                    const startIndex = (page - 1) * itemsPerPage;
-                    const endIndex = startIndex + itemsPerPage;
-                    const currentVideos = videos.slice(startIndex, endIndex);
-                    currentVideos.forEach(video => {
-                        const videoItem = document.createElement('div');
-                        videoItem.classList.add('video-item');
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'video-placeholder';
-                        const p = document.createElement('p');
-                        p.textContent = video;
-                        videoItem.appendChild(placeholder);
-                        videoItem.appendChild(p);
-                        videoList.appendChild(videoItem);
-                    });
-                }
-
-                function updatePagination() {
-                    const totalPages = Math.ceil(videos.length / itemsPerPage);
-                    const modalPagination = document.getElementById('modalPagination');
-                    modalPagination.innerHTML = '';
-                    for (let i = 1; i <= totalPages; i++) {
-                        const pageBtn = document.createElement('button');
-                        pageBtn.textContent = i;
-                        pageBtn.classList.add('page-btn');
-                        if (i === currentPage) {
-                            pageBtn.classList.add('active');
-                        }
-                        pageBtn.addEventListener('click', () => {
-                            currentPage = i;
-                            videoList.innerHTML = '';
-                            showPage(currentPage);
-                            updatePagination();
-                        });
-                        modalPagination.appendChild(pageBtn);
-                    }
-                }
-
-                showPage(currentPage);
-                updatePagination();
-
-                modal.style.display = 'flex';
-            });
-        });
-
+        function showModal() { modal.style.display = 'flex'; }
         function closeModal() {
             modal.style.display = 'none';
         }
