@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Asai.cc" />
+    <meta name="description" content="给张总朋友做的模特列表页面，支持筛选、列表、弹窗等功能，红蓝色块替换成模特照片，交互可自行适当微调。">
+    <title>模特库页面设计</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jqPaginator.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ebf8ff;
+        }
+
+        .as-area {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg,
+                    #0054d6 0%,
+                    #71f7e6 30%,
+                    #00a9e0 60%,
+                    #0054d6 100%);
+        }
+
+        .banner>div {
+            text-align: center;
+            width: 100%;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        .banner img {
+            max-width: 100%;
+            height: 300px;
+        }
+
+        .banner .search-box-ad {
+            margin-top: 58px;
+            width: 70%;
+            display: inline-block;
+        }
+
+        .header-area {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .right-nav a {
+            text-decoration: none;
+            color: #333;
+            margin-right: 25px;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .right-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff6d00;
+        }
+
+
+        .search-box-ad,
+        .search-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .search-box-ad input,
+        .search-box input {
+            width: 100%;
+            padding: 12px 40px 12px 20px;
+            border: 2px solid #e0eafc;
+            border-radius: 24px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box-ad input:focus,
+        .search-box input:focus {
+            border-color: #ff6d00;
+        }
+
+        .search-box-ad .btn,
+        .search-box .btn {
+            position: absolute;
+            cursor: pointer;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .filter-group label {
+            min-width: 80px;
+            color: #666;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            margin-right: 8px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: #ff6d00;
+            color: white;
+            border-color: #ff6d00;
+        }
+
+        .filter-extra {
+            display: none;
+        }
+
+        .filter-extra.show {
+            display: block;
+        }
+
+        .action-btns {
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .action-btns button {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-btns button:hover {
+            background: #f5f5f5;
+        }
+
+        .card-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 12px;
+            width: 260px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .model-img {
+            width: 100%;
+            height: 328px;
+            background: linear-gradient(135deg,
+                    #0054d6 0%,
+                    #71f7e6 30%,
+                    #00a9e0 60%,
+                    #0054d6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .model-img img {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+        }
+
+        .card-info {
+            z-index: 1;
+            padding: 15px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(0deg, #00000028 0%, #00000000 100%);
+        }
+
+        .card-info p {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
+        .hover-actions {
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .model-card:hover .hover-actions {
+            transform: translateY(0);
+        }
+
+        .hover-actions p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .page-btn {
+            padding: 8px 16px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn.active,
+        .page-btn:hover {
+            background: #ff6d00;
+            color: white;
+            border-color: #ff6d00;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            z-index: 10;
+        }
+
+        .header-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #0054d6 0%,
+                    #71f7e6 30%,
+                    #00a9e0 60%,
+                    #0054d6 100%);
+            border-radius: 10px 10px 0 0;
+            z-index: 1;
+        }
+
+        .creator-info {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .creator-avatar {
+            cursor: pointer;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0054d6 0%,
+                    #71f7e6 30%,
+                    #00a9e0 60%,
+                    #0054d6 100%);
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .creator-details h2 {
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .creator-details p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .top-actions {
+            position: absolute;
+            cursor: pointer;
+            top: 88px;
+            right: 20px;
+            z-index: 102;
+        }
+
+        .top-actions button {
+            margin-left: 10px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .top-actions button:hover {
+            background: #f5f5f5;
+        }
+
+        .category-tags {
+            margin: 20px 0;
+        }
+
+        .category-tags button {
+            padding: 6px 12px;
+            border: 1px solid #e0eafc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .category-tags button:hover {
+            background: #f5f5f5;
+        }
+
+        .video-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+            max-height: calc(100vh - 400px);
+            overflow: auto;
+        }
+
+        .video-item {
+            position: relative;
+        }
+
+        .video-play {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: white;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+
+        .video-item .video-placeholder {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #0054d6 0%,
+                    #71f7e6 30%,
+                    #00a9e0 60%,
+                    #0054d6 100%);
+        }
+
+        .video-cursor:hover {
+            cursor: pointer;
+        }
+
+        .video-item p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .modal-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dis {
+            display: none;
+        }
+
+        .pagination {
+            list-style-type: none;
+        }
+
+        /* 隐藏模态框 */
+        .video-pop {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center
+        }
+
+        /* 模态框内容 */
+        .video-content {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fefefe;
+            padding: 0 20px 20px 20px;
+            border: 1px solid #888;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 90%;
+        }
+
+        .video-content .as-img {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .video-content .as-img img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .video-content video {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 关闭按钮 */
+        .video-close {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #D8D8D8;
+            color: #aaa;
+            margin-top: -28px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .video-close:hover,
+        .video-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        .tag-class {
+            display: inline-block;
+            border: 1px solid #e0eafc;
+            padding: 6px 12px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner" class="banner">
+        <div>
+            <img src="banner.png" /><br />
+            <div class="search-box-ad">
+                <input type="text" placeholder="可输入名称关键字搜索...">
+                <div class="btn">🔎</div>
+            </div>
+        </div>
+    </div>
+    <a name="top"></a>
+    <div class="header-area">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-links">
+                    <img src="logo.png" alt="logo" height="38">
+                </div>
+                <div class="right-nav">
+                    <a href="#" class="active">首页</a>
+                    <a href="#">模特库</a>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchinput" placeholder="可输入名称关键字搜索...">
+                <div class="btn" onclick="searchSubmit(0)">🔎</div>
+            </div>
+            <div class="filter-group" id="categorylist">
+                <label>带货类型</label>
+            </div>
+            <div class="filter-group">
+                <label>版权费用</label>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="tag" data-value=1>收费</button>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="tag" data-value=2>免费</button>
+            </div>
+
+            <div class="filter-group">
+                <label>国家</label>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="country"
+                    data-value="美国">美国</button>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="country"
+                    data-value="加拿大">加拿大</button>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="country"
+                    data-value="德国">德国</button>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="country"
+                    data-value="日本">日本</button>
+                <button onpointerup="searchSubmit(0)" class="filter-btn" data-group="country"
+                    data-value="英国">英国</button>
+            </div>
+
+            <div class="filter-group" id="redkindlist">
+                <label>红人类型</label>
+            </div>
+
+            <div class="filter-group" id="pricelist">
+                <label>价格(元)</label>
+            </div>
+
+            <div class="action-btns">
+                <button id="resetBtn">重置</button>
+                <!--button id="toggleFilter">收起筛选 ^</button-->
+                <button onclick="searchSubmit(0)">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="cardContainer">
+        <!-- 这里开始循环列表 -->
+        <!-- script>
+            const mylist = `<div class="model-card" data-id="099488" data-name="瓦妮莎" data-country="美国" data-type="素人创作者"
+            data-categories='["女性时尚", "美容和个人护理", "母婴/儿童", "宠物用品", "家居用品"]'
+            data-videos='["高跟鞋凉鞋", "狗项圈", "酒杯", "狗项圈", "酒杯", "落地灯", "热风梳", "丝毛地毯", "天文望远镜", "靴子", "长款礼服", "餐桌沥水架"]'>
+            <div class="model-img"></div>
+            <div class="hover-actions">
+                <p>瓦妮莎</p>
+                <p>☺ 查看案例</p>
+            </div>
+            <div class="card-info">
+                <p>瓦妮莎</p>
+                <p>📍 美国 ◼ 素人创作者</p>
+            </div>
+        </div>`
+            // 循环数据的示例
+            for (let i = 0; i < 20; i++) {
+                document.write(mylist);
+            }  </script-->
+    </div>
+
+
+    <ul class="pagination" id="pagination1">
+
+    </ul>
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="header-gradient"></div>
+            <!-- <div class="top-actions dis">
+                <button onclick="addToBlacklist()">加入黑名单</button>
+                <button onclick="addToFavorites()">加入收藏</button>
+                <button onclick="selectForShoot()">选ta拍摄</button>
+            </div> -->
+            <div class="top-actions">
+                <button onclick="openQR()">二维码</button>
+
+                <div id="QRModal" class="video-pop">
+                    <div class="video-content">
+                        <span class="video-close" onclick="closeQR()">&times;</span>
+                        <div class="as-img"><img class="img-qrCode" src=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="creator-info">
+                <img class="creator-avatar" src="" />
+                <div class="creator-details">
+                    <h2 class="detail-name"></h2>
+                    <!--p id="creatorId">ID: 099488</p-->
+                    <p id="creatorCountryType"></p>
+                    <p id="durationCycle">ID: 099488</p>
+                </div>
+            </div>
+            <div class="category-tags">
+            </div>
+            <div class="video-list">
+                <!--div class="video-item">
+                    <div class="video-placeholder"></div>
+                    <p>高跟鞋凉鞋</p>
+                </div-->
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // 关闭banner
+        const bannerDom = document.getElementById('banner');
+        const searchinputDom = document.getElementById('searchinput');
+        function closeBanner() {
+            bannerDom.style.display = 'none';
+        }
+        function closeBannerGoTop() {
+            closeBanner();
+            location.href = '#top'; // 跳转到顶部
+            searchinputDom.focus(); // 聚焦搜索框
+            // 1.首次点击时触发查询事件
+            //searchSubmit();
+        }
+        bannerDom.addEventListener('click', closeBannerGoTop);
+        // 监听页面滚动事件
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 10) {
+                closeBanner();
+            }
+        });
+
+        // 重置筛选
+        const resetBtn = document.getElementById('resetBtn');
+        resetBtn.addEventListener('click', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            this.tagList = [];
+            this.priceList = [];
+            this.countryList = [];
+            this.kindList = [];
+            this.categoryIdList = [];
+            this.pageNum = 1;
+            this.pageSize = 20;
+            document.getElementById("searchinput").value = "";
+            searchSubmit(0)
+        });
+
+        // 展开/收起筛选
+        /**        const toggleFilter = document.getElementById('toggleFilter');
+                const extraFilter = document.getElementById('extraFilter');
+                toggleFilter.addEventListener('click', () => {
+                    extraFilter.classList.toggle('show');
+                    if (toggleFilter.textContent.includes('收起')) {
+                        toggleFilter.textContent = '展开筛选 ▼';
+                    } else {
+                        toggleFilter.textContent = '收起筛选 ^';
+                    }
+                });**/
+
+        // 弹窗交互
+        const modal = document.getElementById('detailModal');
+
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // 模拟按钮功能
+        function addToBlacklist() {
+            alert('已加入黑名单');
+        }
+        function addToFavorites() {
+            alert('已加入收藏');
+        }
+        function selectForShoot() {
+            alert('已选ta拍摄');
+        }
+    </script>
+
+    <script>
+        var total = 1;
+        var pageNum = 1;
+        var pageSize = 20;
+        var tagList = [];
+        var countryList = [];
+        var kindList = [];
+        var priceList = [];
+        var categoryIdList = [];
+        init();
+        function init() {
+            apiReq({
+                url: 'http://129.204.180.158:8081/openapi/config/list',
+                //url: 'http://127.0.0.1:8081/openapi/config/list',
+                method: 'GET'
+            })
+                .then(res => {
+                    console.log('成功!获取所属分类', res);
+                    var clist = res.data.categoryList;
+                    var rlist = res.data.redKindList;
+                    var plist = res.data.priceSchemeList;
+                    //分类
+                    var categoryList = document.getElementById('categorylist');
+                    for (let i = 0; i < clist.length; i++) {
+                        let item = clist[i];
+                        let button = document.createElement("button");
+                        button.textContent = item.name;
+                        let divCls = document.createAttribute('class');
+                        divCls.value = 'filter-btn';
+                        button.setAttributeNode(divCls);
+                        let group = document.createAttribute('data-group');
+                        group.value = 'category';
+                        button.setAttributeNode(group);
+                        let dataValue = document.createAttribute('data-value');
+                        dataValue.value = item.id;
+                        button.setAttributeNode(dataValue);
+                        categoryList.appendChild(button);
+                    }
+                    //红人类型
+                    var redkindList = document.getElementById('redkindlist');
+                    for (let i = 0; i < rlist.length; i++) {
+                        let item = rlist[i];
+                        let button = document.createElement("button");
+                        button.textContent = item.name;
+                        let divCls = document.createAttribute('class');
+                        divCls.value = 'filter-btn';
+                        button.setAttributeNode(divCls);
+                        let group = document.createAttribute('data-group');
+                        group.value = 'kind';
+                        button.setAttributeNode(group);
+                        let dataValue = document.createAttribute('data-value');
+                        dataValue.value = item.id;
+                        button.setAttributeNode(dataValue);
+                        redkindList.appendChild(button);
+                    }
+                    //价格菜单
+                    var priceList = document.getElementById('pricelist');
+                    for (let i = 0; i < plist.length; i++) {
+                        let item = plist[i];
+                        let button = document.createElement("button");
+                        button.textContent = item.price;
+                        let divCls = document.createAttribute('class');
+                        divCls.value = 'filter-btn';
+                        button.setAttributeNode(divCls);
+                        let group = document.createAttribute('data-group');
+                        group.value = 'price';
+                        button.setAttributeNode(group);
+                        let dataValue = document.createAttribute('data-value');
+                        dataValue.value = item.price;
+                        button.setAttributeNode(dataValue);
+                        priceList.appendChild(button);
+                    }
+
+                    // 筛选按钮交互（精准单选）
+                    const filterBtns = document.querySelectorAll('.filter-btn');
+                    filterBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const group = btn.dataset.group;
+                            console.log(`点击了 ${group} 组的按钮`);
+                            filterBtns.forEach(b => {
+                                if (b.dataset.group === group) {
+                                    //b.classList.remove('active');
+                                }
+                            });
+                            if (btn.classList.contains("active")) {
+                                btn.classList.remove('active');
+                                if (btn.dataset.group === 'tag') {
+                                    this.tagList.splice(this.tagList.indexOf(btn.dataset.value), 1);
+                                }
+                                if (btn.dataset.group === 'country') {
+                                    this.countryList.splice(this.countryList.indexOf(btn.dataset.value), 1);
+                                }
+                                if (btn.dataset.group === 'kind') {
+                                    this.kindList.splice(this.kindList.indexOf(btn.dataset.value), 1);
+                                }
+                                if (btn.dataset.group === 'price') {
+                                    this.priceList.splice(this.priceList.indexOf(btn.dataset.value), 1);
+                                }
+                                if (btn.dataset.group === 'category') {
+                                    this.categoryIdList.splice(this.categoryIdList.indexOf(btn.dataset.value), 1);
+                                }
+
+
+                            } else {
+                                if (btn.dataset.group === 'tag') {
+                                    this.tagList.splice(this.tagList.length, 0, btn.dataset.value);
+                                }
+                                if (btn.dataset.group === 'country') {
+                                    console.log(btn.dataset.value)
+                                    this.countryList.splice(this.countryList.length, 0, btn.dataset.value);
+                                }
+                                if (btn.dataset.group === 'kind') {
+                                    this.kindList.splice(this.kindList.length, 0, btn.dataset.value);
+                                }
+                                if (btn.dataset.group === 'price') {
+                                    this.priceList.splice(this.priceList.length, 0, btn.dataset.value);
+                                }
+                                if (btn.dataset.group === 'category') {
+                                    this.categoryIdList.splice(this.categoryIdList.length, 0, btn.dataset.value);
+                                }
+                                btn.classList.add('active');
+                            }
+                        });
+                    });
+                })
+                .catch(err => console.error('失败!获取所属分类', err.message));
+        }
+
+        function apiReq({
+            url,
+            method = 'GET',
+            data = {}
+        }) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open(method, url, true);
+
+                if (method === 'POST') {
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.setRequestHeader('pageNum', 1);
+                    xhr.setRequestHeader('pageSize', 3);
+                }
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            try {
+                                const responseData = JSON.parse(xhr.responseText);
+                                resolve(responseData);
+                            } catch (error) {
+                                reject(new Error('响应数据解析失败'));
+                            }
+                        } else {
+                            reject(new Error(`请求失败，状态码：${xhr.status}`));
+                        }
+                    }
+                };
+
+                let sendData = '';
+                if (method === 'POST' && data) {
+                    sendData = JSON.stringify(data);
+                }
+
+                xhr.send(sendData);
+            });
+        }
+
+
+        // API示例调用
+        function searchSubmit(type = 1) {
+            var inputValue = document.getElementById('searchinput').value;
+            let params = {
+                name: inputValue,
+                tagList: this.tagList,
+                countryList: this.countryList,
+                kindList: this.kindList,
+                categoryIdList: this.categoryIdList,
+                priceList: this.priceList
+            }
+            console.log(666.2002, params);
+
+            apiReq({
+                url: 'http://129.204.180.158:8081/openapi/celebrity/list?pageNum=' + this.pageNum + '&pageSize=' + this.pageSize,
+                //url: 'http://127.0.0.1:8081/openapi/celebrity/list?pageNum='+ pageNum +'&pageSize=' + pageSize,
+                method: 'POST',
+                data: params
+            })
+                .then(res => {
+                    console.log('成功!2.查询网红列表', res);
+                    // document.write(res.data)
+                    document.getElementById('cardContainer').innerHTML = '';
+                    this.total = res.total;
+                    type && this.initPageWidget(res.total); // 这个会重置分页，导致页面重复请求，type=1时才初始化分页
+                    for (let i = 0; i < res.rows.length; i++) {
+                        var item = res.rows[i];
+                        let bq = '';
+                        if (item.tag == 1) {
+                            bq = '收费';
+                        } else {
+                            bq = '免费';
+                        }
+                        //html 动态拼接
+                        const mylist = `<div class="model-card" onclick="showModal(` + item.id + `)">
+                        <div class="model-img"><img src="`+ item.avatar + `" /></div>
+                        <div class="hover-actions">
+                <p>`+ item.name + `</p>
+                <p>☺ 查看案例</p>
+            </div>
+            <div class="card-info">
+                <p>`+ item.name + `</p>
+                <p>📍 `+ item.country + ` ◼ ` + item.redKindNames + `</p>
+                <p>📜 `+ bq + ` ￥ ` + item.price + `元</p>
+            </div>
+        </div>`
+                        //document.getElementById('cardContainer').innerHTML += mylist;
+                        document.getElementById('cardContainer').insertAdjacentHTML('beforeend', mylist);
+                    }
+
+
+                })
+                .catch(err => console.error('失败!2.查询网红列表', err.message));
+
+        }
+
+        function initPageWidget(total) {
+            $('#pagination1').jqPaginator({
+                //totalPages: 100,
+                visiblePages: 10,
+                currentPage: 1,
+                totalCounts: total,
+                pageSize: this.pageSize,
+                load_first_page: false,
+                first: '<li class="first page-btn ">首页</li>',
+                prev: '<li class="prev page-btn ">上一页</li>',
+                next: '<li class="next page-btn" >下一页</li>',
+                last: '<li class="last page-btn" >尾页</li>',
+                page: '<li class="page page-btn" >{{page}}</li>',
+                onPageChange: function (num) {
+                    window.pageNum = num;
+                    console.log('666.110022', this.pageNum, num);
+                    searchSubmit(0); // 这里会造成重复请求，type=1时才初始化分页
+                }
+            });
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+        function showModal(id) {
+            modal.style.display = 'flex';
+            apiReq({
+                url: 'http://129.204.180.158:8081/openapi/celebrity/' + id,
+                method: 'GET'
+            })
+                .then(res => {
+                    console.log('成功!获取网红详细信息', res);
+                    // document.write(res.data)
+                    document.querySelector('.creator-avatar').src = res.data.avatar;
+                    document.querySelector('.img-qrCode').src = res.data.qrCode;
+                    document.querySelector('.detail-name').innerHTML = res.data.name;
+                    document.getElementById('creatorCountryType').innerHTML = res.data.country + ' ◼ ' + res.data.redKindNames;
+                    document.getElementById('durationCycle').innerHTML = '平均时长:' + res.data.averageTime + ' ◼ ' + '交付周期' + res.data.leadTime;// 在这里加平均时长、交付周期
+                    // document.querySelector('.category-tags').innerHTML = res.data.proposeProduct;
+                    document.querySelector('.category-tags').innerHTML = res.data.proposeProduct?.split('、').map((el) => `<button class="propose_product">${el}</button>`).join('');// 按分隔符
+                    document.querySelector('.video-list').innerHTML = '';
+                    let casehtml = '';
+                    for (let i = 0; i < res.data.caseList.length; i++) {
+                        let item = res.data.caseList[i];
+                        if (item.type == 2) {
+                            casehtml += `<div class="video-item" onclick="openImgModal(${item.id})">
+                            <img  class="video-placeholder" src="`+ item.fileUrl + `"/>
+                            <p>`+ item.caseName + `</p>
+                            </div>
+                            <div id="imgModal${item.id}" class="video-pop">
+                            <div class="video-content">
+                            <span class="video-close" onclick="closeImgModal(${item.id})">&times;</span>
+                            <div class="as-img"><img src="`+ item.fileUrl + `"/></div>
+                            </div>
+                            </div>
+                             `;
+                        } else {
+                            casehtml += `
+                                    <div class="video-item" onclick="openVideoModal(${item.id})">
+                                    <div class="video-play">▶️</div>
+                                    <img  class="video-placeholder video-cursor" src="`+ item.fileUrl + `"/>
+                                    <p>`+ item.caseName + `</p>
+                                    </div>
+                                    <div id="videoModal${item.id}" class="video-pop">
+                                    <div class="video-content">
+                                    <span class="video-close" onclick="closeVideoModal(${item.id})">&times;</span>
+                                    <!-- 视频 -->
+                                    <video controls>
+                                        <source src="https://www.runoob.com/try/demo_source/movie.mp4" type="video/mp4">
+                                        你的浏览器不支持视频播放。
+                                    </video>
+                                    </div>
+                                    </div>
+                                    `;
+                        }
+
+                    }
+                    if (res.data.caseList.length == 2) {
+                        casehtml += `<div class="video-item"></div>`;
+                    } else if (res.data.caseList.length == 1) {
+                        casehtml += `<div class="video-item"></div><div class="video-item"></div>`;
+                    }
+                    document.querySelector('.video-list').innerHTML = casehtml;
+                })
+                .catch(err => console.error('失败!获取网红详细信息', err.message));
+
+        }
+
+        function openImgModal(id) {
+            const imgModalDom = document.getElementById('imgModal' + id);
+            imgModalDom.style.display = 'flex';
+        }
+        function closeImgModal(id) {
+            const imgModalDom = document.getElementById('imgModal' + id);
+            imgModalDom.style.display = 'none';
+        }
+        function openVideoModal(id) {
+            const videoModalDom = document.getElementById('videoModal' + id);
+            videoModalDom.style.display = 'flex';
+        }
+        function closeVideoModal(id) {
+            const videoModalDom = document.getElementById('videoModal' + id);
+            videoModalDom.style.display = 'none';
+        }
+
+        function openQR() {
+            console.log('openQR');
+            const QRModalDom = document.getElementById('QRModal');
+            QRModalDom.style.display = 'flex';
+        }
+        function closeQR(id) {
+            const QRModalDom = document.getElementById('QRModal');
+            QRModalDom.style.display = 'none';
+        }
+        searchSubmit(); // 页面加载时自动执行查询,这样刷新页面的时候就能加载了，不需要点击遮罩才加载    
+    </script>
+</body>
+
+</html>
