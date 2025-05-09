@@ -1,0 +1,43 @@
+{
+    "config": {
+        "index": "",
+        "models": ["views", "testkdd", "kududu", "novel", "blog", "estun"]
+    },
+    "rights": {
+        "lv": 3,
+        "lv0": ["testkdd/testlv0"],
+        "lv1": ["testkdd/testlv1", "user/login", "user/reg", "user/exit"],
+        "lv2": ["testkdd/testlv2"],
+        "lv3": ["testkdd/testlv3"]
+    },
+    "routers": {
+        "testkdd": [
+            {
+                "value": "testkdd",
+                "label": "使用示例"
+            }
+        ],
+        "asai": [
+            {
+                "value": "admin/jsonmanage",
+                "label": "Json编辑器"
+            },
+            {
+                "value": "user/login/",
+                "label": "登录（用户）"
+            },
+            {
+                "value": "user/exit/",
+                "label": "退出（用户）"
+            },
+            {
+                "value": "user/edit/",
+                "label": "编辑（用户）"
+            },
+            {
+                "value": "user/manage/list/",
+                "label": "列表（用户管理）"
+            }
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "fontsize": "字号",
+    "paragraph": "正文",
+    "title": "标题",
+    "bold": "加粗",
+    "italic": "倾斜",
+    "underline": "下划线",
+    "strikethrough": "删除线",
+    "foreColor": "颜色",
+    "backColor": "背景色",
+    "insertOrderedList": "有序列表",
+    "insertUnorderedList": "无序列表",
+    "alignLeft": "左对齐",
+    "alignCenter": "居中对齐"
+}

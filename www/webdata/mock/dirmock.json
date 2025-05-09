@@ -1,0 +1,6 @@
+{
+    "dirdb": ["db/wsrobot.json"],
+    "db": {},
+    "dirfn": ["js/wsrobot.js"],
+    "fn": {}
+}

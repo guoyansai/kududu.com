@@ -1,0 +1,1 @@
+import{d as a,r as t,c as o,o as s}from"./chunk-asai-B97Ffvgy.js";const r=a({__name:"uploadimg",props:{ujt:{},asaidata:{},formdata:{},formkey:{}},setup:a=>(a,r)=>{const d=t("AsaiUpload");return s(),o(d,{ujt:a.ujt,asaidata:a.asaidata,formdata:a.formdata,formkey:a.formkey},null,8,["ujt","asaidata","formdata","formkey"])}});export{r as default};

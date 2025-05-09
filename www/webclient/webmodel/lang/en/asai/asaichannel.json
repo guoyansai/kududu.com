@@ -1,0 +1,11 @@
+{
+    "data": {
+        "sn": "Serial Number",
+        "hi": "View Number",
+        "xi": "Like Number",
+        "yi": "Hate Number",
+        "tm": "Date Time",
+        "tx": "Fresh Time",
+        "us": "User Name"
+    }
+}

@@ -1,0 +1,1 @@
+import{d as t,r as e,c as a,o as n}from"./chunk-asai-B97Ffvgy.js";const s=t({__name:"default",props:{ujt:{}},setup:t=>(t,s)=>{const u=e("ChannelIndex");return n(),a(u,{ujt:t.ujt,opt:{channel:"channeltestfile",model:"testkdd"}},null,8,["ujt"])}});export{s as default};

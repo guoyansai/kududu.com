@@ -1,0 +1,10 @@
+{
+    "testkddtit": "子模块中的中文测试",
+    "testkdddes": "测试描述",
+    "testkddkdd": "$1实时测试$3,不懂$2哈哈",
+    "testkddkk": "$1 实时如此 $1",
+    "testkddobj": {
+        "testkdd1": "测试1",
+        "testkdd2": "测试2"
+    }
+}

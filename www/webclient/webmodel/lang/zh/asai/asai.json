@@ -1,0 +1,21 @@
+{
+    "testtit": "中文测试",
+    "testdes": "测试描述",
+    "testkdd": "$1实时测试$3,不懂$2哈哈",
+    "testkk": "$1 实时如此 $1",
+    "testobj": {
+        "test1": "测试1",
+        "test2": "测试2"
+    },
+    "dev": "开发中",
+    "index": "首页",
+    "confirm": "确认",
+    "close": "关闭",
+    "cancel": "取消",
+    "search": "搜索",
+    "searchtips": "请输入搜索内容",
+    "theme": "主题",
+    "themedark": "黑主题",
+    "themelight": "白主题",
+    "lang": "English"
+}

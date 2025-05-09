@@ -1,0 +1,1 @@
+import{d as a,r as t,c as o,o as r}from"./chunk-asai-B97Ffvgy.js";const s=a({__name:"uploadimgbybin",props:{ujt:{},asaidata:{},formdata:{},formkey:{}},setup:a=>(a,s)=>{const m=t("AsaiUpBinary");return r(),o(m,{ujt:a.ujt,asaidata:a.asaidata,formdata:a.formdata,formkey:a.formkey},null,8,["ujt","asaidata","formdata","formkey"])}});export{s as default};

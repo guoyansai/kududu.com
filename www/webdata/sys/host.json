@@ -1,0 +1,100 @@
+{
+  "readme": "welcome!",
+  "webpath": "/opt/runtime/web",
+  "system": "linux",
+  "status": {
+    "connectionshttp": 1,
+    "connectionsws": 1
+  },
+  "dataserver": {
+    "path": "/webdata/plugs/asai-nodejs-db/index.js"
+  },
+  "plugs": {
+    "mock": {
+      "path": "/webdata/plugs/asai-nodejs-wsmock/index.js",
+      "dir": "/webdata/mock/",
+      "type": 1
+    }
+  },
+  "wssec": [
+    "asai",
+    "",
+    "-"
+  ],
+  "restarttime": 3000,
+  "ip": "",
+  "proxyport": 9197,
+  "log": 1,
+  "corson": 0,
+  "proxyhosts": {},
+  "hosts": {
+    "guard": {
+      "port": 9199
+    },
+    "asaitest": {
+      "close": 0,
+      "ws": 1,
+      "port": 9196,
+      "mimetypes": {},
+      "hostdirs": [
+        "webclient"
+      ],
+      "cors": [
+        "http://127.0.0.1:9060",
+        "http://127.0.0.1:9061"
+      ]
+    },
+    "asaiweb": {
+      "close": 0,
+      "ws": 1,
+      "port": 9198,
+      "mimetypes": {},
+      "hostdirs": [
+        "webclient",
+        "webdata/upload"
+      ],
+      "cors": [
+        "http://127.0.0.1:9060",
+        "http://127.0.0.1:9061"
+      ]
+    },
+    "estuncocontrol": {
+      "close": 0,
+      "ws": 1,
+      "port": 9000,
+      "mimetypes": {},
+      "cors": [
+        "http://127.0.0.1:9060",
+        "http://127.0.0.1:9061"
+      ]
+    },
+    "estuncovision": {
+      "close": 0,
+      "ws": 1,
+      "port": 9090,
+      "mimetypes": {},
+      "cors": [
+        "http://127.0.0.1:9060",
+        "http://127.0.0.1:9061"
+      ]
+    }
+  },
+  "mimetypes": {
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "text/javascript",
+    ".json": "application/json",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".gif": "image/gif",
+    ".svg": "image/svg+xml",
+    ".txt": "text/plain"
+  },
+  "httptype": "http://",
+  "wstype": "ws://",
+  "httpscert": {
+    "key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDFUuG+O/QtV1KP\nKguEQggM2zuplAxsgrv36IZeJULPqY174VtAJAz/8FtrDCwZLvXrUMkVVxS5fi0J\npg4PRFpNGdOaoZMgvINLkC7EqhyV8RQHp4zzZ+kGNqa/BY7Dz1n+s2vA7r0AZsfy\nKn+X3KCv7KIK6LIGvm3iChISDmnm37cUu4c4qw15p7bGQ3coB/SY4dF6NUIXPKFy\nmep6Mh7qPI2I+80ymGGyfEcUcPRUZCERk+4OsmFu3ozRHcKz5JblQMH5Sa6EgfEI\nzaxcSduql2y89MUfy/u8tSjD8pLiaeJ4cfLefbzccXca7UNnhQVr8vpVhlE8cPW3\n9+fP3pmbAgMBAAECggEAKuxMjsUb6IEGRH4w4yQ5/BH0eH7r9O67VMIP+IrCbcnE\nLR5oaxtseIAgYrjTHudIN1frZej7aR45TdABXvDPc9YaYZikGIrpRJaolb8rWLKI\nWOHpl0kTN3bL7uGWnKGOQglldyJ3mo7BD7yO5MnpaltfJGBZ2X2zCWiHZcYc40uE\nVmzfjUA315cTgcWlmPeA1Q3dmj5ucMQZPWOiHLf95lhuhmdCQHc7Kz9uxdDIZ8GN\nBoeA6aL8UITB/G9A5PbicI3IXi2Hmvo7wcWy9vdeZxWaa0BY2gXoINpoYe2QliRR\nm2DeE7gkinVXa4ZatdxXTwZiesR+t6uKADepPh4GAQKBgQDHBdRP027UzFJGb11j\nMnNseAUM+dcR6cBEV9sdEIT3FC99g999YbHlvxQ9SsxudeunzxX1yM9W1v2z2/hB\nOH3x+ZgbNFdMOuRasWGhBPbKSwJGXFOAqfZ2fke5iITfaLBRL8xlePs394hJlj84\nWOVkQuQCco3kqBf3kYzSwCfPUQKBgQD90IiU4RLBll4lelybmR2xkF1wK/e/Rrlh\n9k/oIIQqc6y5RV2qLq7SrRxLM6u84XPKbO8KEPNPxh4ATHgDj6krQGnbIjgZJ/dl\nkbisTIIXb1AqrABLvow3QmeFtW6Ek37QyVIPeBLkPKcPnyct4/lSzk65ziiF7qsi\ntzJPkgaXKwKBgHAADs/xa3CjnzV2HHbjgGMtU6JOw0KYahPL4UoE7t7g5CzdVpsH\nrIZfNrObcVpEUB66gmAz5sK28EUUaCvD79SJopjEptAGYFXNduSXl46WEayo7nD8\ntO9P92sosaXME1VM8di08aM4UOEghWlfVZBLuGbMMp/YHMy8gyRi8MRRAoGAfP78\ntG0fgozd8pEPGGXQlMim634LtXxMAa1+7q9Mx2dOMbOyjAQPfptYKsTYl91j29XH\n5uowGSJVVgpStFZElpNTTmLMw77F/JRGITxQeOAN1+X7A1Jk1TXzq4qNUecddg8f\nRZT5oMMp9uyHK/dwqtIFPUYE+OhwCVm1AjDE5B8CgYEAjx2POTu3z2+6fwK6oS8s\ncqedAhhnZFX6sgacHpIvQVFTwmtSagNdcOVDoWgLqvy46h0r4LM60fpTDChF1iFT\nSIFRSPD9xAKV5RUkWbhNjeJkzoqY+QaQfZRPJU/LUWYqo3RxmdGSjnsfNo1WAOq+\ndUhsoEnis5C0Zo3zDLON4ZY=\n-----END PRIVATE KEY-----",
+    "cert": "-----BEGIN CERTIFICATE-----\nMIIEYDCCAsigAwIBAgIQUSIxe59NfwR96/Tt/stcEDANBgkqhkiG9w0BAQsFADBn\nMR4wHAYDVQQKExVta2NlcnQgZGV2ZWxvcG1lbnQgQ0ExHjAcBgNVBAsMFUFTRFxB\nZG1pbmlzdHJhdG9yQEFTRDElMCMGA1UEAwwcbWtjZXJ0IEFTRFxBZG1pbmlzdHJh\ndG9yQEFTRDAeFw0yMzA4MTcwNzI5MDBaFw0yNTExMTcwNzI5MDBaMEkxJzAlBgNV\nBAoTHm1rY2VydCBkZXZlbG9wbWVudCBjZXJ0aWZpY2F0ZTEeMBwGA1UECwwVQVNE\nXEFkbWluaXN0cmF0b3JAQVNEMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC\nAQEAxVLhvjv0LVdSjyoLhEIIDNs7qZQMbIK79+iGXiVCz6mNe+FbQCQM//Bbawws\nGS7161DJFVcUuX4tCaYOD0RaTRnTmqGTILyDS5AuxKoclfEUB6eM82fpBjamvwWO\nw89Z/rNrwO69AGbH8ip/l9ygr+yiCuiyBr5t4goSEg5p5t+3FLuHOKsNeae2xkN3\nKAf0mOHRejVCFzyhcpnqejIe6jyNiPvNMphhsnxHFHD0VGQhEZPuDrJhbt6M0R3C\ns+SW5UDB+UmuhIHxCM2sXEnbqpdsvPTFH8v7vLUow/KS4mnieHHy3n283HF3Gu1D\nZ4UFa/L6VYZRPHD1t/fnz96ZmwIDAQABo4GlMIGiMA4GA1UdDwEB/wQEAwIFoDAT\nBgNVHSUEDDAKBggrBgEFBQcDATAfBgNVHSMEGDAWgBRfMihPL5wxAt4lI6lXNgO0\ncdAoTTBaBgNVHREEUzBRggZhcy5jb22CBmFzLmRldoIFYXMuY26CBWFzLmNjggVh\ncy5haYIHYXNhaS5jY4IJbG9jYWxob3N0hwR/AAABhxAAAAAAAAAAAAAAAAAAAAAB\nMA0GCSqGSIb3DQEBCwUAA4IBgQCJLk8KTI0W8SUC638vo3pp1ZHK41fZxnjRsQcY\nbu1N6cbKZMrk5IT+Eo8os/L10ayA5TbEowfvT3FcTiC+aJytYkmg2uH9MTWd26TA\nHus7/lNoHnfyhwklHXM13BaQSzL/Qa5KwUYkhwvDbzNLcpSO19b21NQWpo+jAgCq\nIzPQOnY3t2XCVmluWPI6BOwqrtAn0KHOWQnw9jiv5vYVKUpR+b0Qjv2vO/bMYh9O\nIArMDh++2TQJI/UJ+5vXVob9krx0MaWWph4PleMsKNsyEf2/LkD2LJWPtCbjNXPB\ni8EFnmJM0wBZTnVF/Yvy7Aa6WiHaGJh5c6jvQCn3izQnCm+e5okcJsaTZcHlQ6q6\n3RTav4jInOHe7XZqc77VtuF/rfU37xTqCDwwTQBbVolVadFUUEPCvWYSdiAwvPft\nkCV6cJRVqODBBnvcDlnJCGbpG+MG6a1JNXG3GtFwl+wYYK9M/GzGc9X33M3Uup8s\n+Te7KWci7cCXWkC7dA2lLidSlPc=\n-----END CERTIFICATE-----"
+  },
+  "asaisn": "GYSWrI!AsaiBmM5KZLejF168oc7XQxbkVgTuNCzt3EUPR42J*n$Owld90hyvp+H-qf_D"
+}

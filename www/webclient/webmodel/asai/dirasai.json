@@ -1,0 +1,7 @@
+{
+    "dir": [
+        "channel/asaichannel.json",
+        "test/testjson.json",
+        "test/testhtml.html"
+    ]
+}

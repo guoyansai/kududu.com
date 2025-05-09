@@ -1,0 +1,10 @@
+{
+    "dir": [
+        "config/router.json",
+        "config/settingsys.json",
+        "config/settingstore.json",
+        "configuser/configzoom.json",
+        "configuser/configtheme.json",
+        "configuser/configlang.json"
+    ]
+}

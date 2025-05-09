@@ -1,0 +1,13 @@
+{
+    "dbtype": "file",
+    "model": "asai",
+    "sn": "channeluser",
+    "config": {
+        "power": { "add": 0, "read": 1, "edit": 1, "del": 1 },
+        "ps": 3,
+        "pmax": 9999
+    },
+    "sxs": ["asai", "us", "lv"],
+    "sss": ["asai", "us", "lv"],
+    "rule": {}
+}

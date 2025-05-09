@@ -1,0 +1,22 @@
+{
+    "webtit": "埃斯顿酷卓WEB-V2",
+    "testtit": "中文测试",
+    "testdes": "测试描述",
+    "testkdd": "$1实时测试$3,不懂$2哈哈",
+    "testkk": "$1 实时如此 $1",
+    "testobj": {
+        "test1": "测试1",
+        "test2": "测试2"
+    },
+    "link": {
+        "class": {
+            "api": "API请求服务",
+            "ws": "WS通信服务"
+        },
+        "webserver": "服务地址",
+        "web": "WEB服务",
+        "cocontrol": "控制器WS",
+        "covision": "视觉WS",
+        "testkdd": "测试WS"
+    }
+}

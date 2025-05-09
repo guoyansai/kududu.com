@@ -1,0 +1,21 @@
+{
+    "dbtype": "file",
+    "model": "testkdd",
+    "sn": "channeltestfile",
+    "config": {
+        "ps": 3,
+        "pmax": 9999
+    },
+    "sxs": ["asai", "tit", "sn"],
+    "sss": ["asai", "tit", "content"],
+    "rule": {
+        "class": {
+            "comp": "AsaiSelect",
+            "data": "channeltestfile.fl"
+        },
+        "img": {
+            "comp": "AsaiUploadImg",
+            "data": { "width": 200, "height": 200 }
+        }
+    }
+}

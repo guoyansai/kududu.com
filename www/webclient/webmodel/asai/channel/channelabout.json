@@ -1,0 +1,12 @@
+{
+    "dbtype": "file",
+    "model": "asai",
+    "sn": "channelabout",
+    "config": {
+        "ps": 6,
+        "pmax": 9999
+    },
+    "sxs": ["asai", "time", "tit", "sn"],
+    "sss": ["asai", "tit", "content"],
+    "rule": {}
+}

@@ -1,0 +1,25 @@
+{
+    "rule": {
+        "sn": {
+            "type": "string"
+        },
+        "hi": {
+            "type": "number"
+        },
+        "xi": {
+            "type": "number"
+        },
+        "yi": {
+            "type": "number"
+        },
+        "tm": {
+            "type": "number"
+        },
+        "tx": {
+            "type": "number"
+        },
+        "us": {
+            "type": "string"
+        }
+    }
+}

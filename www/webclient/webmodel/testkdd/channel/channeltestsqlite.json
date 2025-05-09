@@ -1,0 +1,17 @@
+{
+    "dbtype": "sqlite",
+    "model": "testkdd",
+    "sn": "channeltestsqlite",
+    "config": {
+        "ps": 3,
+        "pmax": 9999
+    },
+    "sxs": ["asai", "tit", "sn"],
+    "sss": ["asai", "tit", "content"],
+    "rule": {
+        "class": {
+            "comp": "AsaiSelect",
+            "data": "channeltestsqlite.fl"
+        }
+    }
+}

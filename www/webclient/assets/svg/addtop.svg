@@ -1,0 +1,30 @@
+<svg id="添加到上面" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 40px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #434343;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 80 80;
+      }
+    </style>
+  </defs>
+  <path id="圆角矩形_31" data-name="圆角矩形 31" class="cls-1" d="M99,613H700a60,60,0,0,1,60,60v10a60,60,0,0,1-60,60H99a60,60,0,0,1-60-60V673A60,60,0,0,1,99,613Z"/>
+  <path id="圆角矩形_31_拷贝" data-name="圆角矩形 31 拷贝" class="cls-2" d="M99,396H700a60,60,0,0,1,60,60v10a60,60,0,0,1-60,60H99a60,60,0,0,1-60-60V456A60,60,0,0,1,99,396Z"/>
+  <path id="圆角矩形_31_拷贝_2" data-name="圆角矩形 31 拷贝 2" class="cls-3" d="M767.991,220H327a60,60,0,0,1-60-60V150a60,60,0,0,1,60-60H767.991"/>
+  <path id="形状_15_拷贝" data-name="形状 15 拷贝" class="cls-1" d="M31.962,167.377L121.1,69.043l85.934,98.889"/>
+  <path id="圆角矩形_32_拷贝" data-name="圆角矩形 32 拷贝" class="cls-1" d="M120,320V96.3"/>
+</svg>

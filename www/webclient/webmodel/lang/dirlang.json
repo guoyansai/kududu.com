@@ -1,0 +1,17 @@
+{
+    "langs": {
+        "en": "English",
+        "zh": "中文"
+    },
+    "dir": [
+        "asai/asai.json",
+        "asai/asaichannel.json",
+        "asai/richtexteditor.json",
+        "asai/channeluser.json",
+        "asai/channelabout.json",
+        "sys/sys.json",
+        "testkdd/testkdd.json",
+        "testkdd/channeltestfile.json",
+        "testkdd/channeltestsqlite.json"
+    ]
+}

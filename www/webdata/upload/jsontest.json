@@ -1,0 +1,25 @@
+{
+    "test": "testasai",
+    "type": 0,
+    "label": "这是一个标签",
+    "value": {
+        "a": 1,
+        "b": "aa",
+        "arr": [1, 2, 3, 4, 5],
+        "tty": { "qqq": 2222, "uu": { "haha": "sss", "uuu": { "iu": 123 } } },
+        "obj": { "yyy": 7777 },
+        "type": 0,
+        "label": "这是一个标签",
+        "value": {
+            "a": 1,
+            "b": "aa",
+            "arr": [1, 2, 3, 4, 5],
+            "tty": {
+                "qqq": 2222,
+                "uu": { "haha": "sss", "uuu": { "iu": 123 } }
+            },
+            "obj": { "yyy": 7777 }
+        }
+    },
+    "obj": { "tt": 2222 }
+}
