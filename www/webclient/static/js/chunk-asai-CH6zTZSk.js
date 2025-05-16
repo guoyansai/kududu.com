@@ -1,0 +1,1 @@
+import{d as t,r as o,j as s,o as a,l as n,k as l,F as u}from"./chunk-asai-BcUlmSst.js";const e=t({__name:"default",props:{ujt:{}},setup(t){const e=t,{$model:r}=e.ujt;function p(t){console.log("onUpload",t)}return(t,e)=>{const r=o("AsUploadTxt");return a(),s(u,null,[e[0]||(e[0]=n("h1",null,"上传txt测试",-1)),l(r,{ujt:t.ujt,onOnUpload:p},null,8,["ujt"])],64)}}});export{e as default};

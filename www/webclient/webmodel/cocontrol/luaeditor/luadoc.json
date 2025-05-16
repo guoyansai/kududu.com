@@ -1,0 +1,15 @@
+{
+    "luawhile": {
+        "luawhile": "a=10\nwhile( a < 20 )\ndo\n   print(\"a 的值为:\", a)\n   a = a+1\nend",
+        "luafor": "for i=1,f(x) do\n    print(i)\nend\n \nfor i=10,1,-1 do\n    print(i)\nend",
+        "luarepeat": "a = 10\nrepeat\n   print(\"a:\", a)\n   a = a + 1\nuntil( a > 15 )"
+    },
+
+    "luaif": {
+        "luaif": "a = 10;\nif( a < 20 )\nthen\n   print(\"a < 20\" );\nend\nprint(\"a:\", a);",
+        "luaelse": "a = 100;\nif( a < 20 )\nthen\n   print(\"a < 20\" )\nelse\n   print(\"a > 20\" )\nend\nprint(\"a:\", a)"
+    },
+    "luafunction": {
+        "luafunction": "function max(num1, num2)\n\n   if (num1 > num2) then\n      result = num1;\n   else\n      result = num2;\n   end\n\n   return result;\nend"
+    }
+}

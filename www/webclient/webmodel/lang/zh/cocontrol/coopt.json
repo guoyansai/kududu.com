@@ -1,0 +1,32 @@
+{
+    "common": {
+        "getError": "获取数据异常",
+        "saveOk": "保存成功",
+        "saveError": "保存失败",
+        "cancel": "取消",
+        "confirm": "确定",
+        "apply": "应用",
+        "remove": "移除",
+        "clear": "清空",
+        "none": "无",
+        "rebootActivate": "重启生效",
+        "light": "浅色",
+        "dark": "深色"
+    },
+    "network": {
+        "robotIP": "机器人IP",
+        "correctIP": "请输入正确的IP"
+    },
+    "robotInfo": {
+        "model": "型号",
+        "serialNo": "序列号",
+        "productDate": "生产日期",
+        "robotIp": "机器人IP"
+    },
+    "robotVersion": {
+        "softVersion": "软件版本",
+        "msfVersion": "MSF版本",
+        "mscVersion": "MSC版本",
+        "jointVersion": "关节固件版本"
+    }
+}

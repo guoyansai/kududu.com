@@ -1,0 +1,107 @@
+{
+    "config": {
+        "init": 0,
+        "id": "robotlua",
+        "rightclick": 1,
+        "customtheme": {
+            "base": "vs",
+            "inherit": true,
+            "rules": [
+                {
+                    "token": "customfunction",
+                    "foreground": "#ff0000",
+                    "fontStyle": "bold"
+                },
+                {
+                    "token": "syswords",
+                    "foreground": "#0000ff",
+                    "fontStyle": "bold"
+                },
+                {
+                    "token": "treewidget",
+                    "foreground": "#2a7efc",
+                    "fontStyle": "bold"
+                },
+                {
+                    "token": "asvarspoint",
+                    "foreground": "#0030ff",
+                    "fontStyle": "bold"
+                },
+                {
+                    "token": "asvarsproject",
+                    "foreground": "#03e0ff",
+                    "fontStyle": "bold"
+                },
+                {
+                    "token": "asvarsglobal",
+                    "foreground": "#66e0ff",
+                    "fontStyle": "bold"
+                }
+            ],
+            "colors": {
+                "editor.background": "#ebebeb",
+                "editor.foreground": "#222220",
+                "editorLineNumber.foreground": "#9ca6b9",
+                "editorLineNumber.activeForeground": "#4777cb",
+                "editor.inactiveSelectionBackground": "#705697",
+                "editorIndentGuide.background": "#404040",
+                "editorIndentGuide.activeBackground": "#4D366F",
+                "editor.selectionHighlightBackground": "#EEE8D5"
+            }
+        },
+        "customlanguages": {
+            "tips": [
+                {
+                    "text": "test",
+                    "title": "测试玩玩的标题",
+                    "content": "测试看看的内容"
+                },
+                {
+                    "text": "SqlUtil",
+                    "title": "数据库操作",
+                    "content": "对数据进行操作，支持sql,addConditionExist等操作"
+                }
+            ],
+            "validation": []
+        }
+    },
+    "customlanguages": {
+        "autocoding": [
+            { "label": "xyz()" },
+            { "label": "ffff()" },
+            { "label": "update()" },
+            { "label": "select()" },
+            { "label": "while()" },
+            {
+                "label": "if",
+                "type": { "key": "wrap", "value": "\n" },
+                "kind": "Keyword",
+                "insertText": "\n#if()\n\t\n #end",
+                "detail": "流程控制"
+            },
+            {
+                "label": "\"lodash\"",
+                "type": { "key": "wrap", "value": "\n" },
+                "kind": "Operator",
+                "documentation": "The Lodash library exported as Node.js modules.",
+                "insertText": "\"lodash\": \"*\""
+            },
+            {
+                "label": "express",
+                "documentation": "Fast, unopinionated, minimalist web framework",
+                "insertText": "\"express\": \"*\""
+            },
+            {
+                "label": "mkdirp",
+                "kind": "Variable",
+                "documentation": "Recursively mkdir, like <code>mkdir -p</code>",
+                "insertText": "\"mkdirp\":\"*\""
+            },
+            {
+                "label": "my-third-party-library",
+                "documentation": "Describe your library here",
+                "insertText": "\"${1:my-third-party-library}\": \"${2:1.2.3}\""
+            }
+        ]
+    }
+}

@@ -1,0 +1,486 @@
+{
+    "projmanager/save": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据"
+        }
+    },
+    "projexecute/execute": {
+        "modtype": 1,
+        "db": {
+            "rundata": {
+                "ImageSource": {
+                    "data": [
+                        {
+                            "label": "来源11",
+                            "value": "11"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "projexecute/run": {
+        "modtype": 1,
+        "db": {
+            "rundata": {
+                "ImageSource": {
+                    "data": [
+                        {
+                            "label": "来源11",
+                            "value": "11"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "projexecute/graph": {
+        "db": {
+            "data": {
+                "graphdata": [
+                    {
+                        "mask": "",
+                        "result": "",
+                        "source": "./assets/vision/img/roi.png"
+                    }
+                ]
+            }
+        }
+    },
+    "projexecute/cfg": {
+        "db": {
+            "data": {
+                "cfgdata": [
+                    {
+                        "node": "imlyqq23325nc9n5",
+                        "path": ["baseparam", "ImageSource", "ImageIndex"],
+                        "value": "86"
+                    }
+                ]
+            }
+        }
+    },
+    "projexecute/resume": {
+        "modtype": 1,
+        "fn": {
+            "res": [
+                {
+                    "keys": [
+                        "viproject",
+                        "stat",
+                        "data",
+                        "Instruction/Project/Info/projectState"
+                    ],
+                    "val": 0
+                }
+            ]
+        },
+        "db": {
+            "key": "模拟响应数据"
+        }
+    },
+    "projexecute/stop": {
+        "modtype": 1,
+        "fn": {
+            "res": [
+                {
+                    "keys": [
+                        "viproject",
+                        "stat",
+                        "data",
+                        "Instruction/Project/Info/projectState"
+                    ],
+                    "val": 0
+                }
+            ]
+        },
+        "db": {
+            "key": "模拟响应数据"
+        }
+    },
+    "projexecute/pause": {
+        "modtype": 1,
+        "fn": {
+            "res": [
+                {
+                    "keys": [
+                        "viproject",
+                        "stat",
+                        "data",
+                        "Instruction/Project/Info/projectState"
+                    ],
+                    "val": 3
+                }
+            ]
+        },
+        "db": {
+            "key": "模拟响应数据"
+        }
+    },
+    "publish/TasksInfo": {
+        "keys": "Instruction/Tasks/Info",
+        "db": {
+            "Instruction/Tasks/Info": {
+                "tklhbnddsbh5": {
+                    "currentlable": "mxllhbne48oj",
+                    "taskErrorCode": 0,
+                    "taskState": 4
+                }
+            }
+        }
+    },
+    "projmanager/fetch": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据"
+        }
+    },
+    "projmanager/deletenode": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据addnode"
+        }
+    },
+    "projmanager/addnode": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据addnode",
+            "vindex": 88
+        }
+    },
+    "projmanager/getnode": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据getnode",
+            "rundata": {
+                "InputImage": {
+                    "data": [
+                        {
+                            "label": "来源11",
+                            "value": "11"
+                        }
+                    ]
+                },
+                "ImageSource": {
+                    "data": [
+                        {
+                            "label": "来源11",
+                            "value": "11"
+                        }
+                    ]
+                },
+                "ImageSource1": {
+                    "data": [
+                        {
+                            "label": "来源3322",
+                            "value": "3322"
+                        }
+                    ]
+                },
+                "ImageSource2": {
+                    "data": [
+                        {
+                            "label": "来源22",
+                            "value": "22"
+                        }
+                    ]
+                },
+                "Point": {
+                    "data": [
+                        {
+                            "value": "1",
+                            "label": "Level one 1",
+                            "children": [
+                                {
+                                    "value": "1-1",
+                                    "label": "Level two 1-1",
+                                    "children": [
+                                        {
+                                            "value": "1-1-1",
+                                            "label": "Level three 1-1-1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "value": "2",
+                            "label": "Level one 2",
+                            "children": [
+                                {
+                                    "value": "2-1",
+                                    "label": "Level two 2-1",
+                                    "children": [
+                                        {
+                                            "value": "2-1-1",
+                                            "label": "Level three 2-1-1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": "2-2",
+                                    "label": "Level two 2-2",
+                                    "children": [
+                                        {
+                                            "value": "2-2-1",
+                                            "label": "Level three 2-2-1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "value": "3",
+                            "label": "Level one 3",
+                            "children": [
+                                {
+                                    "value": "3-1",
+                                    "label": "Level two 3-1",
+                                    "children": [
+                                        {
+                                            "value": "3-1-1",
+                                            "label": "Level three 3-1-1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": "3-2",
+                                    "label": "Level two 3-2",
+                                    "children": [
+                                        {
+                                            "value": "3-2-1",
+                                            "label": "Level three 3-2-1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "publish/ProjectStatus": {
+        "db": {
+            "Instruction/Project/Info/projectState": 0,
+            "Instruction/Project/Info/projectMode": 1,
+            "Instruction/Project/Info/projectId": ""
+        }
+    },
+    "report/list": {
+        "db": {
+            "data": [
+                {
+                    "id": 1,
+                    "no": "1",
+                    "time": "2024/05/24 12:05:36",
+                    "user": "estun_001",
+                    "type": "INFO",
+                    "data": "0.本地图像：宽：1920，高：1080"
+                },
+                {
+                    "id": 2,
+                    "no": "2",
+                    "time": "2024/05/24 14:22:17",
+                    "user": "estun_002",
+                    "type": "INFO",
+                    "data": "项目：打开项目文件 test_1.evpx 成功， 项目版本：V2.3.1"
+                },
+                {
+                    "id": 3,
+                    "no": "3",
+                    "time": "2024/05/24 15:12:08",
+                    "user": "estun_002",
+                    "type": "WARN",
+                    "data": "21.数据接收:通信设备未连接！"
+                },
+                {
+                    "id": 4,
+                    "no": "4",
+                    "time": "2024/05/24 10:19:04 ",
+                    "user": "estun_002",
+                    "type": "ERROR",
+                    "data": "21.数据接收:通信设备未连接！"
+                },
+                {
+                    "id": 5,
+                    "no": "5",
+                    "time": "2024/05/24 15:12:08",
+                    "user": "estun_002",
+                    "type": "INFO",
+                    "data": "项目：打开项目文件 test_1.evpx 成功， 项目版本：V2.3.1"
+                }
+            ]
+        }
+    },
+    "report/listall": {
+        "db": {
+            "data": [
+                {
+                    "id": 1,
+                    "no": "1",
+                    "time": "2024/05/24 12:05:36",
+                    "user": "estun_001",
+                    "type": "INFO",
+                    "data": "0.本地图像：宽：1920，高：1080"
+                },
+                {
+                    "id": 2,
+                    "no": "2",
+                    "time": "2024/05/24 14:22:17",
+                    "user": "estun_002",
+                    "type": "INFO",
+                    "data": "项目：打开项目文件 test_1.evpx 成功， 项目版本：V2.3.1"
+                },
+                {
+                    "id": 3,
+                    "no": "3",
+                    "time": "2024/05/24 15:12:08",
+                    "user": "estun_002",
+                    "type": "WARN",
+                    "data": "21.数据接收:通信设备未连接！"
+                },
+                {
+                    "id": 4,
+                    "no": "4",
+                    "time": "2024/05/24 10:19:04 ",
+                    "user": "estun_002",
+                    "type": "ERROR",
+                    "data": "21.数据接收:通信设备未连接！"
+                },
+                {
+                    "id": 5,
+                    "no": "5",
+                    "time": "2024/05/24 15:12:08",
+                    "user": "estun_002",
+                    "type": "INFO",
+                    "data": "项目：打开项目文件 test_1.evpx 成功， 项目版本：V2.3.1"
+                }
+            ]
+        }
+    },
+    "user/Login": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据",
+            "name": "web",
+            "password": ""
+        }
+    },
+    "common/setlanguage": {
+        "modtype": 1,
+        "db": {
+            "key": "模拟响应数据"
+        }
+    },
+    "upload/cutcamera": {
+        "modtype": 1,
+        "db": {
+            "list": ["./assets/vision/img/roi.png"]
+        }
+    },
+    "upload/base64list": {
+        "modtype": 1,
+        "db": {
+            "list": ["./assets/vision/img/roi.png"]
+        }
+    },
+    "upload/deleteimg": {
+        "modtype": 1,
+        "db": {
+            "msg": "OK"
+        }
+    },
+    "calib/getlist": {
+        "modtype": 1,
+        "db": {
+            "flowlist": [
+                {
+                    "label": "流程一",
+                    "value": "1"
+                },
+                {
+                    "label": "流程二",
+                    "value": "2"
+                }
+            ],
+            "markpointlist": [
+                {
+                    "label": "program1",
+                    "options": [
+                        {
+                            "label": "点1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "点2",
+                            "value": "2"
+                        }
+                    ]
+                },
+                {
+                    "label": "program2",
+                    "options": [
+                        {
+                            "label": "点3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "点4",
+                            "value": "4"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "calib/updatecalibtable": {
+        "modtype": 1,
+        "db": {
+            "calibdata": [1, 1023.3, 2124.65, 23.6, 89.877, 45]
+        }
+    },
+    "calib/manualcalculate": {
+        "modtype": 1,
+        "db": {
+            "code": 0,
+            "filename": "calibfile1"
+        }
+    },
+    "calib/autocoor": {
+        "modtype": 1,
+        "db": {
+            "code": 0,
+            "data": [8, 105.3, 21324.65, 123.6, 89.877, 45]
+        }
+    },
+    "camera/list": {
+        "modtype": 1,
+        "db": {
+            "list": [{ "label": "相机一", "value": "1" }]
+        }
+    },
+    "common/setparam": {
+        "modtype": 1,
+        "param": [
+            {
+                "label": "单步信号",
+                "path": "Instruction/Project/projectStepSignal",
+                "value": true
+            },
+            {
+                "label": "设置指针",
+                "path": "Instruction/Tasks/Command/<任务id>/taskSetPc",
+                "value": "<控件ID>"
+            },
+            {
+                "path": "Plotter/interface",
+                "value": ["a/b/x", "a/b/C"]
+            }
+        ],
+        "db": {
+            "key": "模拟响应数据"
+        }
+    }
+}

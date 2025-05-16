@@ -1,0 +1,49 @@
+{
+    "controlmenus": {
+        "controlhand": "手动",
+        "controlauto": "自动",
+        "controlnet": "远程"
+    },
+    "rightmenus": {
+        "move": "移动",
+        "project": "程序",
+        "global": "变量",
+        "io": "I/O",
+        "plc": "寄存器"
+    },
+    "topmenus": {
+        "robotsetting": "设置",
+        "robotcode": "编程",
+        "robotview": "看板",
+        "robotplug": "应用"
+    },
+    "tasktypes": ["", "主程序", "线程", "中断"],
+    "project": {
+        "newname": "新工程"
+    },
+    "indexbottom": {
+        "robotstatus": "机器人状态",
+        "robotpoweron": "上电",
+        "robotpoweroff": "下电",
+        "robotrun": "运行",
+        "robotruntit": "工程运行选项",
+        "robotruntype": ["取消运行", "自动运行", "单步运行"],
+        "robotrunstart": "运行准备中",
+        "robotrunsuccess": "恭喜您，运行成功！",
+        "robotsim": "仿真",
+        "robotmachine": "实机"
+    },
+    "indextop": {
+        "projectsearch": "请输入搜索关键词",
+        "projectdelconfirm": " 确认删除吗？",
+        "projectload": "加载",
+        "projectcopy": "复制",
+        "projectdel": "删除",
+        "projectdown": "下载",
+        "projectmanage": "工程管理",
+        "projectsave": "保存",
+        "usermanage": "用户管理",
+        "userswitch": "切换用户",
+        "userexit": "用户退出"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "setMoveConfig": {
+        "setSpeedJ": {
+            "ds": 0.5,
+            "op": {
+                "co": ["#89eb18", "#e4ffc4"]
+            }
+        },
+        "setAccJ": {
+            "ds2": 0.8,
+            "op": {
+                "co": ["#89eb18", "#e4ffc4"]
+            }
+        },
+        "setSpeedL": {
+            "ms": 0.5,
+            "op": {
+                "co": ["#89eb18", "#e4ffc4"]
+            }
+        },
+        "setAccL": {
+            "ms2": 0.5,
+            "op": {
+                "co": ["#89eb18", "#e4ffc4"]
+            }
+        },
+        "setBlender": {
+            "m": 0.5,
+            "op": {
+                "co": ["#89eb18", "#e4ffc4"]
+            }
+        },
+        "op": {
+            "spe": 1,
+            "co": ["#89eb18", "#e4ffc4"]
+        }
+    }
+}

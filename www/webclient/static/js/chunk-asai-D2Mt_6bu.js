@@ -1,0 +1,1 @@
+import{d as t,r as a,c as s,o as u}from"./chunk-asai-BcUlmSst.js";const n=t({__name:"default",props:{ujt:{}},setup(t){const n=t,{$fn:r,$db:e,$global:o}=n.ujt;return(t,n)=>{const r=a("UserManage");return u(),s(r,{ujt:t.ujt},null,8,["ujt"])}}});export{n as default};

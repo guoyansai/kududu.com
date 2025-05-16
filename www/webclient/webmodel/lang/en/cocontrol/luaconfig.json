@@ -1,0 +1,12 @@
+{
+    "detailkeys": {
+        "asvarspoint": "Point",
+        "asvarsproject": "Project Var",
+        "asvarsglobal": "Global Var",
+        "customfunction": "Function",
+        "custommodel": "Model",
+        "syswords": "Sys Keywords",
+        "treewidget": "Widgets",
+        "keywords": "Keywords"
+    }
+}

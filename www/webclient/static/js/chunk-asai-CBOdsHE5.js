@@ -1,0 +1,1 @@
+import{d as a,r as s,c as t,o as u}from"./chunk-asai-BcUlmSst.js";const e=a({__name:"default",props:{ujt:{}},setup:a=>(a,e)=>{const r=s("UserDelManage");return u(),t(r,{ujt:a.ujt},null,8,["ujt"])}});export{e as default};

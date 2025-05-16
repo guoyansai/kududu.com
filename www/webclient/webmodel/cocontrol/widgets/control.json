@@ -1,0 +1,59 @@
+{
+    "Control": {
+        "wait": {
+            "waittime": 0,
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "waitCondition": {
+            "condition": "",
+            "timeout": 3000,
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "systemTime": {
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "stopProject": {
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "pauseProject": {
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "runScript": {
+            "scriptname": "",
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "pauseScript": {
+            "scriptname": "",
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "resumeScript": {
+            "scriptname": "",
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "stopScript": {
+            "scriptname": "",
+            "op": {
+                "co": ["#39ecec", "#adfbfb"]
+            }
+        },
+        "op": {
+            "co": ["#39ecec", "#adfbfb"]
+        }
+    }
+}

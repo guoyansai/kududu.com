@@ -1,0 +1,1 @@
+import{d as s,j as a,l as u,k as t,F as l,r as n,o as r}from"./chunk-asai-BcUlmSst.js";const o=s({__name:"asai",props:{ujt:{}},setup:s=>(s,o)=>{const e=n("UserCard");return r(),a(l,null,[o[0]||(o[0]=u("h1",null,"404页面",-1)),o[1]||(o[1]=u("h2",null,"原因：通过路由没有找到对应的渲染页面！",-1)),t(e,{ujt:s.ujt},null,8,["ujt"])],64)}});export{o as default};

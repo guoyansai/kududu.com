@@ -1,0 +1,11 @@
+{
+    "p1": {
+        "jp": ["Axis1", "Axis2", "Axis3", "Axis4", "Axis5", "Axis6"],
+        "cp": ["x", "y", "z", "a", "b", "c"],
+        "rj": ["dx", "dy", "dz", "da", "db", "dc"]
+    },
+    "sine": "Sine",
+    "sawtooth": "Sawtooth",
+    "crescent": "Crescent",
+    "spatial": "Spatial Triangle"
+}

@@ -1,0 +1,49 @@
+{
+    "controlmenus": {
+        "controlhand": "Hand",
+        "controlauto": "Auto",
+        "controlnet": "Net"
+    },
+    "rightmenus": {
+        "move": "Move",
+        "project": "Project",
+        "global": "Global",
+        "io": "I/O",
+        "plc": "PLC"
+    },
+    "topmenus": {
+        "robotsetting": "Setting",
+        "robotcode": "Code",
+        "robotview": "View",
+        "robotplug": "Plug"
+    },
+    "tasktypes": ["", "Main", "Thread", "Interrupt"],
+    "project": {
+        "newname": "New Project"
+    },
+    "indexbottom": {
+        "robotstatus": "Robot Status",
+        "robotpoweron": "Power On",
+        "robotpoweroff": "Power Off",
+        "robotrun": "Run",
+        "robotruntit": "Project Run Options",
+        "robotruntype": ["Cancel", "Auto", "Step"],
+        "robotrunstart": "Preparing to Run",
+        "robotrunsuccess": "Congratulations! Run successfully!",
+        "robotsim": "Simulation",
+        "robotmachine": "Real Machine"
+    },
+    "indextop": {
+        "projectsearch": "Enter search keywords",
+        "projectdelconfirm": " Delete?",
+        "projectload": "Load",
+        "projectcopy": "Copy",
+        "projectdel": "Del",
+        "projectdown": "Down",
+        "projectmanage": "Project",
+        "projectsave": "Save",
+        "usermanage": "User Management",
+        "userswitch": "Switch User",
+        "userexit": "User Logout"
+    }
+}

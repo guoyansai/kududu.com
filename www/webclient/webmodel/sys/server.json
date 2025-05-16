@@ -1,0 +1,59 @@
+{
+  "servertype": 0,
+  "defaultws": "cocontrol",
+  "api": {
+    "webserver": {
+      "url": ""
+    }
+  },
+  "ws": {
+    "web": {
+      "close": 0,
+      "url": "",
+      "port": 9198,
+      "sec": 1,
+      "worker": 0,
+      "config": {
+        "tmdeltask": 600000,
+        "resend": 0,
+        "resendmax": 10
+      }
+    },
+    "cocontrol": {
+      "close": 0,
+      "url": "",
+      "port": 9000,
+      "sec": 0,
+      "worker": 1,
+      "config": {
+        "tmdeltask": 600000,
+        "resend": 0,
+        "resendmax": 10
+      }
+    },
+    "covision": {
+      "close": 0,
+      "url": "",
+      "port": 9090,
+      "sec": 0,
+      "worker": 0,
+      "config": {
+        "tmdeltask": 600000,
+        "resend": 0,
+        "resendmax": 10
+      }
+    },
+    "testkdd": {
+      "close": 0,
+      "url": "",
+      "port": 9196,
+      "sec": 0,
+      "worker": 0,
+      "config": {
+        "tmdeltask": 600000,
+        "resend": 0,
+        "resendmax": 10
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "digitaout": "数字量输出",
+    "digitalin": "数字量输入",
+    "analogout": "模拟量输出",
+    "analogin": "模拟量输入",
+    "lock": "已锁定",
+    "unlock": "已解锁",
+    "ports": "端口",
+    "address": "地址",
+    "type": "类型",
+    "name": "名称",
+    "value": "值",
+    "permission": "权限",
+    "monitor": "监视",
+    "on": "开启",
+    "off": "关闭",
+    "savechange": "保存修改",
+    "force": "强制",
+    "save": "保存",
+    "cancel": "取消",
+    "send": "下发"
+}

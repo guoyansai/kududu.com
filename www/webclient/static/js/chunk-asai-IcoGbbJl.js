@@ -1,0 +1,1 @@
+import{d as s,r as a,j as t,o as u,l,k as n,F as r}from"./chunk-asai-BcUlmSst.js";const o=s({__name:"default",props:{ujt:{}},setup:s=>(s,o)=>{const e=a("UserCard");return u(),t(r,null,[o[0]||(o[0]=l("h1",null,"公共页面：任意访问（vision）",-1)),n(e,{ujt:s.ujt},null,8,["ujt"])],64)}});export{o as default};

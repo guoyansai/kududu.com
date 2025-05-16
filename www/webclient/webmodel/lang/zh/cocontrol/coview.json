@@ -1,0 +1,109 @@
+{
+    "common": {
+        "getError": "获取数据异常",
+        "saveOk": "保存成功",
+        "saveError": "保存失败",
+        "restoreDataError": "还原数据异常",
+        "cancel": "取消",
+        "confirm": "确定",
+        "apply": "应用",
+        "remove": "移除",
+        "clear": "清空",
+        "none": "无",
+        "light": "浅色",
+        "dark": "深色"
+    },
+    "main": {
+        "goWidgetManage": "进入部件管理",
+        "addWidget": "添加部件"
+    },
+    "addWidget": {
+        "selectOne": "请先选择一个部件",
+        "allAdded": "都已经被你添加完啦"
+    },
+    "runStatus": {
+        "name": "运行状态",
+        "desc": "描述",
+        "robotModel": "机器人型号",
+        "robotStatus": "机器人状态",
+        "totalRunTime": "总运行时间",
+        "hour": "小时"
+    },
+    "coordToolPayload": {
+        "name": "坐标、工具、负载",
+        "desc": "描述",
+        "coord": "坐标系",
+        "tool": "工具",
+        "payload": "负载"
+    },
+    "simulate": {
+        "name": "仿真",
+        "desc": "描述",
+        "tcp": "位置",
+        "joint": "关节",
+        "copySuccess": "已成功复制到剪贴板"
+    },
+    "projectLoad": {
+        "name": "程序加载",
+        "desc": "描述",
+        "dispalyName": "程序",
+        "load": "加载",
+        "col_no": "序号",
+        "col_name": "名称",
+        "col_operator": "操作",
+        "select": "选择"
+    },
+    "globalVar": {
+        "name": "全局变量",
+        "desc": "描述",
+        "col_Name": "名称",
+        "col_val": "值"
+    },
+    "projectVar": {
+        "name": "工程变量",
+        "desc": "描述",
+        "col_Name": "名称",
+        "col_val": "值"
+    },
+    "realTimeLog": {
+        "name": "实时日志",
+        "desc": "描述",
+        "displayName": "实时日志",
+        "no": "序号",
+        "info": "信息"
+    },
+    "errorInfo": {
+        "name": "错误信息",
+        "desc": "描述",
+        "displayName": "错误信息",
+        "code": "错误码",
+        "info": "信息",
+        "reset": "复位"
+    },
+    "logo": {
+        "name": "商标",
+        "desc": "描述",
+        "selectOne": "请选择一个图片",
+        "uploadError": "上传失败: ",
+        "uploadTip": "请上传商标",
+        "upload": "上传"
+    },
+    "themeColor": {
+        "name": "主题颜色",
+        "desc": "描述",
+        "selectClor": "选择颜色"
+    },
+    "fullLog": {
+        "name": "日志",
+        "desc": "描述",
+        "displayName": "日志",
+        "download": "下载日志",
+        "info": "信息",
+        "warning": "警告",
+        "error": "错误",
+        "type": "类型",
+        "datetime": "时间",
+        "code": "错误代码",
+        "content": "内容"
+    }
+}

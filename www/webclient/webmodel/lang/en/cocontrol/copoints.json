@@ -1,0 +1,17 @@
+{
+    "tcpPoint": "TCP Point",
+    "jointPoint": "Joint Point",
+    "table": {
+        "type": "Type",
+        "name": "Name",
+        "remark": "Remark",
+        "coord": "Coord",
+        "tool": "Tool"
+    },
+    "action": {
+        "move": "Move",
+        "update": "Update",
+        "save": "Save",
+        "delete": "Delete"
+    }
+}

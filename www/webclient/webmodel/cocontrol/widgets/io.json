@@ -1,0 +1,48 @@
+{
+    "IO": {
+        "DO": {
+            "port": "",
+            "outputval": 0,
+            "op": {
+                "co": ["#2f65f0", "#8eaaf0"]
+            }
+        },
+        "DIO": {
+            "port": "",
+            "op": {
+                "co": ["#2f65f0", "#8eaaf0"]
+            }
+        },
+        "DOGroup": {
+            "startPort": "",
+            "endPort": "",
+            "intval": 0,
+            "op": {
+                "co": ["#2f65f0", "#8eaaf0"]
+            }
+        },
+        "DIOGroup": {
+            "startPort": "",
+            "endPort": "",
+            "op": {
+                "co": ["#2f65f0", "#8eaaf0"]
+            }
+        },
+        "AO": {
+            "port": "",
+            "floatval": 0,
+            "op": {
+                "co": ["#2f65f0", "#8eaaf0"]
+            }
+        },
+        "AIO": {
+            "port": "",
+            "op": {
+                "co": ["#2f65f0", "#8eaaf0"]
+            }
+        },
+        "op": {
+            "co": ["#2f65f0", "#8eaaf0"]
+        }
+    }
+}

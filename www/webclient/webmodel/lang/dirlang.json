@@ -12,6 +12,21 @@
         "sys/sys.json",
         "testkdd/testkdd.json",
         "testkdd/channeltestfile.json",
-        "testkdd/channeltestsqlite.json"
+        "testkdd/channeltestsqlite.json",
+        "cocontrol/cocontrol.json",
+        "cocontrol/cowidgets.json",
+        "cocontrol/coattr.json",
+        "cocontrol/coattrtips.json",
+        "cocontrol/channelcocontrol.json",
+        "cocontrol/luadoc.json",
+        "cocontrol/coio.json",
+        "cocontrol/comove.json",
+        "cocontrol/copoints.json",
+        "cocontrol/cocommon.json",
+        "cocontrol/luaconfig.json",
+        "cocontrol/coselectlabel.json",
+        "cocontrol/coioplc.json",
+        "cocontrol/coview.json",
+        "cocontrol/coopt.json"
     ]
 }

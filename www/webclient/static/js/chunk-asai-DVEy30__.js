@@ -1,0 +1,1 @@
+import{d as u,r as e,c as a,o as t}from"./chunk-asai-BcUlmSst.js";const s=u({__name:"default",props:{ujt:{}},setup(u){const s=[{label:"首页",value:""},{value:"kududu"},{value:"testkdd"},{value:"novel"},{value:"blog/index"}];return(u,l)=>{const n=e("MenuShowFix");return t(),a(n,{ujt:u.ujt,menus:s},null,8,["ujt"])}}});export{s as _};

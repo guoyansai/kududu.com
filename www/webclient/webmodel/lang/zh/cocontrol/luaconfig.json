@@ -1,0 +1,12 @@
+{
+    "detailkeys": {
+        "asvarspoint": "位姿",
+        "asvarsproject": "工程变量",
+        "asvarsglobal": "全局变量",
+        "customfunction": "自定义函数",
+        "custommodel": "自定义模块",
+        "syswords": "系统关键词",
+        "treewidget": "平台指令",
+        "keywords": "关键词"
+    }
+}

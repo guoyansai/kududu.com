@@ -1,0 +1,46 @@
+{
+    "Register": {
+        "getRegisterBool": {
+            "regaddr": "",
+            "op": {
+                "co": ["#ffa758", "#ffd6b1"]
+            }
+        },
+        "setRegisterBool": {
+            "regaddr": "",
+            "boolval": false,
+            "op": {
+                "co": ["#ffa758", "#ffd6b1"]
+            }
+        },
+        "getRegisterInt": {
+            "regaddr": "",
+            "op": {
+                "co": ["#ffa758", "#ffd6b1"]
+            }
+        },
+        "setRegisterInt": {
+            "regaddr": "",
+            "intval": 0,
+            "op": {
+                "co": ["#ffa758", "#ffd6b1"]
+            }
+        },
+        "getRegisterFloat": {
+            "regaddr": "",
+            "op": {
+                "co": ["#ffa758", "#ffd6b1"]
+            }
+        },
+        "setRegisterFloat": {
+            "regaddr": "",
+            "floatval": 0,
+            "op": {
+                "co": ["#ffa758", "#ffd6b1"]
+            }
+        },
+        "op": {
+            "co": ["#ffa758", "#ffd6b1"]
+        }
+    }
+}

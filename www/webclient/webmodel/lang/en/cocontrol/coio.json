@@ -1,0 +1,22 @@
+{
+    "lock": "Lock",
+    "unlock": "Unlock",
+    "force": "Force",
+    "save": "Save",
+    "send": "Send",
+    "cancel": "Cancel",
+    "notes": "备注",
+    "ports": "端口",
+    "portName": "Name",
+    "portValue": "Value",
+    "digitaout": "Digital Output",
+    "digitalin": "Digital Input",
+    "analogout": "Analog Output",
+    "analogin": "Analog Input",
+    "simdigitalout": "Simulated Digital Output",
+    "simdigitalin": "Simulated Digital Input",
+    "simanalogout": "Simulated Analog Output",
+    "simanalogin": "Simulated Analog input",
+    "inTheRange": "Please fill in the range",
+    "errormessage": "There are errors in the modifications, please check and resubmit"
+}

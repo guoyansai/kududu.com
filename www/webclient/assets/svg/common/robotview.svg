@@ -1,0 +1,26 @@
+<svg id="折叠组" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #5a5a5a;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        stroke-width: 40px;
+      }
+
+      .cls-2 {
+        stroke-width: 60px;
+      }
+    </style>
+  </defs>
+  <path id="矩形_22" data-name="矩形 22" class="cls-1" d="M420.764,399.794H728.236a20,20,0,0,1,20,20V704.206a20,20,0,0,1-20,20H420.764a20,20,0,0,1-20-20V419.794A20,20,0,0,1,420.764,399.794Z"/>
+  <path id="矩形_22-2" data-name="矩形 22" class="cls-1" d="M486.554,562.233H656.769"/>
+  <path id="矩形_22-3" data-name="矩形 22" class="cls-2" d="M60.473,562.188H293.819"/>
+  <path id="矩形_22-4" data-name="矩形 22" class="cls-2" d="M60.473,96.188H741.032"/>
+  <path id="矩形_22-5" data-name="矩形 22" class="cls-2" d="M60.473,257.188H741.032"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 40px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="程序运行" class="cls-1" d="M400,53.094c191.591,0,346.906,155.315,346.906,346.906S591.591,746.906,400,746.906,53.094,591.591,53.094,400,208.409,53.094,400,53.094ZM318.006,607L608,400,318.006,193.009V607Z"/>
+</svg>

@@ -1,0 +1,500 @@
+{
+    "move": {
+        "TestWidget": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "lua": "if ($1) then\n$c\nend",
+                "spe": 2,
+                "co": ["#6bd6c4", "#b0efe4"],
+                "ch": 1
+            }
+        },
+        "movJ": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "movL": {
+            "p1": {
+                "cp": [1, 2, 3, 4, 5, 6],
+                "rj": [1, 2, 3, 4, 5, 6]
+            },
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "movC": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "p2": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "movCircle": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "p2": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "count": 10,
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "movLW": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "w": {
+                "type": 1,
+                "freq": 1.1,
+                "amp": 5,
+                "azimuth": 10,
+                "elevation": 10,
+                "leftStop": 10,
+                "rightStop": 10
+            },
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "movCW": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "p2": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "w": {
+                "wiggletype": 1,
+                "wigglefreq": 1,
+                "wiggleamp": 1,
+                "azimuth": 1,
+                "elevation": 1,
+                "leftStop": 1,
+                "rightStop": 1
+            },
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "movTraj": {
+            "trajname": "",
+            "optional": {
+                "v": 1000,
+                "a": 3000,
+                "b": 100,
+                "coor": "",
+                "tool": "",
+                "search": "DI(1) == 1",
+                "onpercent": [
+                    [30, "DO(3, 1) DO(4, 1)"],
+                    [80, "DO(3, 0) DO(4, 0)"]
+                ],
+                "speedratio": 1
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setSpeedJ": {
+            "s": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setAccJ": {
+            "a": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setSpeedL": {
+            "s": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setAccL": {
+            "a": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setBlender": {
+            "b": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setCoor": {
+            "coor": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "editCoor": {
+            "coor": "",
+            "coorVal": [0, 0, 0, 0, 0, 0],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setTool": {
+            "tool": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "editTool": {
+            "tool": "",
+            "toolVal": [0, 0, 0, 0, 0, 0],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setPayload": {
+            "payloadid": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "enableVibrationSuppression": {
+            "vs": [1, 2, 3, 0.1, 0.1, 0.1],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "disableVibrationSuppression": {
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setCollisionDetectionSensitivity": {
+            "percent": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "initComplianceControl": {
+            "comliance": {
+                "direction": [0, 0, 0, 0, 0, 0],
+                "d": [0, 0, 0, 0, 0, 0],
+                "k": [0, 0, 0, 0, 0, 0],
+                "deadzone": [0, 0, 0, 0, 0, 0],
+                "m": 0.1
+            },
+            "type": 0,
+            "coorId": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "enableComplianceControl": {
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "disableComplianceControl": {
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "forceControlZeroCalibrate": {
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "setFilterPeriod": {
+            "period": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "searchSuccessed": {
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getJoint": {
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getTCP": {
+            "optional": {
+                "coor": "",
+                "tool": ""
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "apostocpos": {
+            "p1": {
+                "jp": [0, 0, 0, 0, 0, 0]
+            },
+            "optional": {
+                "coor": "",
+                "tool": ""
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "cpostoapos": {
+            "p1": {
+                "jp": [0, 0, 0, 0, 0, 0]
+            },
+            "optional": {
+                "coor": "",
+                "tool": ""
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "cpostocpos": {
+            "p1": {
+                "jp": [0, 0, 0, 0, 0, 0]
+            },
+            "from": {
+                "coor": "",
+                "tool": ""
+            },
+            "to": {
+                "coor": "",
+                "tool": ""
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getCoor": {
+            "coor": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getTool": {
+            "tool": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "posOffset": {
+            "orvalue": [0, 0, 0, 0, 0, 0],
+            "offset": [0, 0, 0, 0, 0, 0],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "posTrans": {
+            "orcoor": [0, 0, 0, 0, 0, 0],
+            "offset": [0, 0, 0, 0, 0, 0],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "coorRel": {
+            "coor": "",
+            "offset": [0, 0, 0, 0, 0, 0],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "toolRel": {
+            "p1": {
+                "jp": [0, 0, 0, 0, 0, 0]
+            },
+            "coor": "",
+            "offset": [0, 0, 0, 0, 0, 0],
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getJointTorque": {
+            "artnum": 1,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getJointExternalTorque": {
+            "artnum": 1,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "createTray": {
+            "trayname": "",
+            "trayconfig": {
+                "onedim": {
+                    "pcount": 2
+                },
+                "twodim": {
+                    "row": 1,
+                    "col": 1
+                }
+            },
+            "traypoints": {
+                "trayonedim": [1, 2],
+                "traytwodim": [1, 2, 3]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getTrayPos": {
+            "trayname": "",
+            "pnum": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "posInverse": {
+            "p1": {
+                "cp": [0, 0, 0, 0, 0, 0]
+            },
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "distance": {
+            "pstart": "",
+            "pend": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "interPos": {
+            "pstart": "",
+            "pend": "",
+            "lenpercent": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "planeTrans": {
+            "p1": {
+                "cp": [0, 0, 0, 0, 0, 0]
+            },
+            "plane": "",
+            "transangle": 0,
+            "xtrans": 0,
+            "ytrans": 0,
+            "ztrans": 0,
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getTrajStart": {
+            "trajname": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "getTrajEnd": {
+            "trajname": "",
+            "op": {
+                "co": ["#F07AD4", "#F6D5EB"]
+            }
+        },
+        "op": {
+            "co": ["#F07AD4", "#F6D5EB"]
+        }
+    }
+}

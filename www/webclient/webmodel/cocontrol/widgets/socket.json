@@ -1,0 +1,37 @@
+{
+    "Socket": {
+        "createSocketClient": {
+            "clientname": "",
+            "serverhost": "",
+            "serverport": "",
+            "op": {
+                "co": ["#e8774b", "#ffd1bf"]
+            }
+        },
+        "connectSocketClient": {
+            "clientname": "",
+            "timeout": 3000,
+            "op": {
+                "co": ["#e8774b", "#ffd1bf"]
+            }
+        },
+        "writeSocketClient": {
+            "clientname": "",
+            "senddata": "",
+            "timeout": 3000,
+            "op": {
+                "co": ["#e8774b", "#ffd1bf"]
+            }
+        },
+        "readSocketClient": {
+            "clientname": "",
+            "timeout": 3000,
+            "op": {
+                "co": ["#e8774b", "#ffd1bf"]
+            }
+        },
+        "op": {
+            "co": ["#e8774b", "#ffd1bf"]
+        }
+    }
+}

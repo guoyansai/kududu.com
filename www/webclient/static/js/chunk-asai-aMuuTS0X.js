@@ -1,1 +1,0 @@
-import{d as a,b as t,r as s,c as o,o as u}from"./chunk-asai-B97Ffvgy.js";const n=a({__name:"default",props:{ujt:{}},setup(a){const n=t({path:"/webdata/upload/jsontest.json",data:null});return(a,t)=>{const r=s("JsonEditor");return u(),o(r,{ujt:a.ujt,asaidata:n},null,8,["ujt","asaidata"])}}});export{n as default};

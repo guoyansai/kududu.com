@@ -1,1 +1,0 @@
-import{d as t,r as e,c as s,o as a}from"./chunk-asai-B97Ffvgy.js";const n=t({__name:"default",props:{ujt:{}},setup:t=>(t,n)=>{const u=e("ChannelIndex");return a(),s(u,{ujt:t.ujt,opt:{channel:"channeltestsqlite",model:"testkdd"}},null,8,["ujt"])}});export{n as default};

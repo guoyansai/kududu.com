@@ -1,0 +1,38 @@
+{
+    "RS485": {
+        "RS485init": {
+            "rstype": 0,
+            "rsbaud": 0,
+            "options": {
+                "stop": 1,
+                "parity": 0,
+                "data": 8
+            },
+            "op": {
+                "co": ["#707de0", "#abb3f2"]
+            }
+        },
+        "RS485flush": {
+            "rstype": 0,
+            "op": {
+                "co": ["#707de0", "#abb3f2"]
+            }
+        },
+        "RS485write": {
+            "rstype": 0,
+            "arraydata": [22, 33, 44],
+            "op": {
+                "co": ["#707de0", "#abb3f2"]
+            }
+        },
+        "RS485read": {
+            "rstype": 0,
+            "op": {
+                "co": ["#707de0", "#abb3f2"]
+            }
+        },
+        "op": {
+            "co": ["#707de0", "#abb3f2"]
+        }
+    }
+}

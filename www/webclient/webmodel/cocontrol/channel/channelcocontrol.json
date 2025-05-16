@@ -1,0 +1,51 @@
+{
+    "dbtype": "file",
+    "model": "cocontrol",
+    "sn": "channelcocontrol",
+    "config": {
+        "ps": 6,
+        "pmax": 9999
+    },
+    "sxs": ["asai", "time", "tit", "sn"],
+    "sss": ["asai", "tit", "content"],
+    "rule": {},
+
+    "controlmenus": ["controlauto", "controlhand", "controlnet"],
+    "topmenus": ["robotsetting", "robotcode", "robotview", "robotplug"],
+    "rightmenus": ["move", "project", "global", "io", "plc"],
+    "indexwswatch": {
+        "projectstate": { "ty": "publish/ProjectState" },
+        "robotstatus": { "ty": "publish/RobotStatus" },
+        "robotposture": { "ty": "publish/RobotPosture" },
+        "robotcoordinate": { "ty": "publish/RobotCoordinate" },
+        "systemmessage": { "ty": "publish/SystemMessage" },
+        "roboterror": { "ty": "publish/RobotError" },
+        "projectstatus": { "ty": "publish/ProjectStatus" },
+        "usercommand": { "ty": "publish/UserCommand" },
+        "useragent": { "ty": "publish/UserAgent" },
+        "tasksinfo": { "ty": "publish/TasksInfo" },
+        "variable": { "ty": "publish/Variable" }
+    },
+
+    "stat": {
+        "onpower": [2, 3, 4, 5],
+        "stoped": [0],
+        "running": [1, 2, 3, 4, 5],
+        "stand": [1, 2, 5],
+        "data": [
+            { "label": ["Idle", "空闲"], "value": 0 },
+            { "label": ["Load", "加载"], "value": 1 },
+            { "label": ["Run", "运行"], "value": 2 },
+            { "label": ["Pause", "暂停"], "value": 3 },
+            { "label": ["Stop", "停止"], "value": 4 },
+            { "label": ["Error", "错误"], "value": 5 }
+        ],
+        "mode": {
+            "data": [
+                { "label": ["Idle", "连续模式"], "value": 1 },
+                { "label": ["Idle", "单步模式"], "value": 2 },
+                { "label": ["Idle", "倒序模式"], "value": 3 }
+            ]
+        }
+    }
+}

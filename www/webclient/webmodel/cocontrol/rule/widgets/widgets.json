@@ -1,0 +1,11 @@
+{
+    "readme": {
+        "children": "是否有子指令",
+        "color": "指令颜色",
+        "accolor": "选中指令颜色"
+    },
+    "defaultwg": {
+        "color": "#F07AD4",
+        "accolor": "#F6D5EB"
+    }
+}

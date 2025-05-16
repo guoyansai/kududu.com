@@ -1,0 +1,36 @@
+{
+    "computed": {
+        "getJoint": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            }
+        },
+        "cpostocpos": {
+            "p1": {
+                "jp": [1, 2, 3, 4, 5, 6]
+            },
+            "from": {
+                "coor": 0,
+                "tool": 1
+            },
+            "to": {
+                "coor": 0,
+                "tool": 1
+            }
+        },
+        "op": {
+            "spe": 1
+        }
+    },
+    "other": {
+        "scriptLua": {
+            "script": "",
+            "op": {
+                "co": ["#085fb9", "#9bc8f6"]
+            }
+        },
+        "op": {
+            "co": ["#085fb9", "#9bc8f6"]
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "common": {
+        "getError": "Get data error.",
+        "saveOk": "Save success",
+        "saveError": "Save failure",
+        "restoreDataError": "Restore data error",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "apply": "Apply",
+        "remove": "Remove",
+        "clear": "Clear",
+        "none": "none",
+        "light": "Light",
+        "dark": "Dark"
+    },
+    "main": {
+        "goWidgetManage": "Go to widgets management",
+        "addWidget": "Add Widget"
+    },
+    "addWidget": {
+        "selectOne": "Please select one widget first",
+        "allAdded": "They have all been added by your already"
+    },
+    "runStatus": {
+        "name": "Run Status",
+        "desc": "描述",
+        "robotModel": "Robot Model",
+        "robotStatus": "Robot Status",
+        "totalRunTime": "Total Runtime",
+        "hour": "Hour"
+    },
+    "coordToolPayload": {
+        "name": "Coordinate, Tool and Palyload",
+        "desc": "描述",
+        "coord": "Coordinate",
+        "tool": "Tool",
+        "payload": "Palyload"
+    },
+    "simulate": {
+        "name": "Simulate",
+        "desc": "描述",
+        "tcp": "TCP",
+        "joint": "Joint",
+        "copySuccess": "Copy success"
+    },
+    "projectLoad": {
+        "name": "Project Load",
+        "desc": "描述",
+        "dispalyName": "Project",
+        "load": "Load",
+        "col_no": "No.",
+        "col_name": "Name",
+        "col_operator": "Operator",
+        "select": "Select"
+    },
+    "globalVar": {
+        "name": "Global Var",
+        "desc": "描述",
+        "col_Name": "Name",
+        "col_val": "Value"
+    },
+    "projectVar": {
+        "name": "Project Var",
+        "desc": "描述",
+        "col_Name": "Name",
+        "col_val": "Value"
+    },
+    "realTimeLog": {
+        "name": "Real Time Log",
+        "desc": "描述",
+        "displayName": "Real Time Log",
+        "no": "No.",
+        "info": "Info"
+    },
+    "errorInfo": {
+        "name": "Error Info",
+        "desc": "描述",
+        "displayName": "Error Info",
+        "code": "Code",
+        "info": "Info",
+        "reset": "Reset"
+    },
+    "logo": {
+        "name": "Logo",
+        "desc": "描述",
+        "selectOne": "Please select one image",
+        "uploadError": "Upload error: ",
+        "uploadTip": "Please upload logo",
+        "upload": "Upload"
+    },
+    "themeColor": {
+        "name": "Theme Color",
+        "desc": "描述",
+        "selectClor": "Select Color"
+    },
+    "fullLog": {
+        "name": "Log",
+        "desc": "描述",
+        "displayName": "Log",
+        "download": "Download Log",
+        "info": "Info",
+        "warning": "Warning",
+        "error": "Error",
+        "type": "Type",
+        "datetime": "Datetime",
+        "code": "Error Code",
+        "content": "Content"
+    }
+}

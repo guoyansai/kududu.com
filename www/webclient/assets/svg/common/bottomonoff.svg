@@ -1,0 +1,16 @@
+<svg id="switch-update" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 60px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="椭圆_20" data-name="椭圆 20" class="cls-1" d="M497.006,133.006C628.219,173.96,723.24,294.132,723.24,436c0,175.628-145.619,318-325.25,318S72.739,611.631,72.739,436c0-144.274,98.268-266.108,232.933-305.01"/>
+  <path id="圆角矩形_17" data-name="圆角矩形 17" class="cls-1" d="M400.21,294.074V40.546"/>
+</svg>

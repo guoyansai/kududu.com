@@ -1,0 +1,17 @@
+<svg id="插入" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #333;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 40px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="矩形_39" data-name="矩形 39" class="cls-1" d="M93.149,167.992v-68.7a40,40,0,0,1,40-40H720a40,40,0,0,1,40,40V702.051a40,40,0,0,1-40,40H133.149a40,40,0,0,1-40-40V532.7"/>
+  <path id="矩形_39-2" data-name="矩形 39" class="cls-1" d="M683,612.051H180.149"/>
+  <path id="形状_30" data-name="形状 30" class="cls-1" d="M40.964,412.244H468V519.02L648.765,329,468,138.98V249.758H40.964V412.244Z"/>
+</svg>

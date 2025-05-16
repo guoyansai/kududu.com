@@ -1,0 +1,63 @@
+{
+    "logic": {
+        "if": {
+            "e": "",
+            "op": {
+                "lua": "if ($1) then\n$c\nend",
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"],
+                "ch": 1
+            }
+        },
+        "elseif": {
+            "e": "",
+            "op": {
+                "lua": "elseif ($1) then\n$c\nend",
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"],
+                "ch": 1
+            }
+        },
+        "else": {
+            "op": {
+                "lua": "else \n$c\nend",
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"],
+                "ch": 1
+            }
+        },
+        "for": {
+            "e": "",
+            "op": {
+                "lua": "for ($1) do\n$c\nend",
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"],
+                "ch": 1
+            }
+        },
+        "while": {
+            "e": "",
+            "op": {
+                "lua": "while ($1) do\n$c\nend",
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"],
+                "ch": 1
+            }
+        },
+        "goto": {
+            "op": {
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"]
+            }
+        },
+        "return": {
+            "op": {
+                "spe": 2,
+                "co": ["#00ffff", "#d1fef6"]
+            }
+        },
+        "op": {
+            "co": ["#00ffff", "#d1fef6"]
+        }
+    }
+}

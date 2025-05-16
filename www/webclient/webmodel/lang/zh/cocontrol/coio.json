@@ -1,0 +1,22 @@
+{
+    "lock": "已锁定",
+    "unlock": "已解锁",
+    "force": "强制",
+    "save": "保存",
+    "send": "下发",
+    "cancel": "取消",
+    "notes": "备注",
+    "ports": "端口",
+    "portName": "名称",
+    "portValue": "值",
+    "digitaout": "数字量输出",
+    "digitalin": "数字量输入",
+    "analogout": "模拟量输出",
+    "analogin": "模拟量输入",
+    "simdigitalout": "虚拟数字量输出",
+    "simdigitalin": "虚拟数字了输入",
+    "simanalogout": "虚拟模拟量输出",
+    "simanalogin": "虚拟模拟量输入",
+    "inTheRange": "请按照范围填写",
+    "errormessage": "修改中包含错误，请查验后重新提交"
+}

@@ -1,0 +1,17 @@
+{
+    "tcpPoint": "TCP点位",
+    "jointPoint": "关节点位",
+    "table": {
+        "type": "类型",
+        "name": "名称",
+        "remark": "备注",
+        "coord": "坐标系",
+        "tool": "工具"
+    },
+    "action": {
+        "move": "移动",
+        "update": "更新",
+        "save": "保存",
+        "delete": "删除"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "common": {
+        "getError": "Get data error.",
+        "saveOk": "Save success",
+        "saveError": "Save failure",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "apply": "Apply",
+        "remove": "Remove",
+        "clear": "Clear",
+        "none": "none",
+        "rebootActivate": "Reboot to activate",
+        "light": "Light",
+        "dark": "Dark"
+    },
+    "network": {
+        "robotIP": "Robot IP",
+        "correctIP": "Please input correct IP"
+    },
+    "robotInfo": {
+        "model": "Model",
+        "serialNo": "Serial No",
+        "productDate": "Product Date",
+        "robotIp": "Robot IP"
+    },
+    "robotVersion": {
+        "softVersion": "Soft Version",
+        "msfVersion": "MSF Version",
+        "mscVersion": "MSC Version",
+        "jointVersion": "Joint Firmware Version"
+    }
+}

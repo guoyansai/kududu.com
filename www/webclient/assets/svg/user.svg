@@ -1,0 +1,20 @@
+<svg id="根据logo_设置用户icon" data-name="根据logo，设置用户icon" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #444;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 40px;
+      }
+
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="矩形_30" data-name="矩形 30" class="cls-1" d="M533.824,765.292H112.354V590.007m75.69-156.35,345.78-3.407"/>
+  <path id="椭圆_44" data-name="椭圆 44" class="cls-1" d="M527.275,430.257c90.767,0,166.058,79.1,166.431,169.743,0.471,114.5-49.729,159.456-166.431,164.7"/>
+  <circle id="椭圆_45" data-name="椭圆 45" class="cls-2" cx="392" cy="181" r="146.031"/>
+</svg>

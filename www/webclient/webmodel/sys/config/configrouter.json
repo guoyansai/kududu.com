@@ -1,0 +1,53 @@
+{
+    "config": {
+        "index": "",
+        "models": ["views", "testkdd", "kududu", "novel", "blog", "cocontrol", "covision"]
+    },
+    "rights": {
+        "lv": 3,
+        "lv0": ["testkdd/testlv0"],
+        "lv1": ["testkdd/testlv1", "user/login", "user/reg", "user/exit"],
+        "lv2": ["testkdd/testlv2"],
+        "lv3": ["testkdd/testlv3"]
+    },
+    "routers": {
+        "cocontrol": [
+            {
+                "value": "testkdd",
+                "label": "使用示例"
+            },
+            { "label": "看板", "value": "cocontrol/robotview" },
+            { "label": "编程", "value": "cocontrol/robotcode" },
+            { "label": "应用", "value": "cocontrol/robotplug" },
+            { "label": "配置", "value": "cocontrol/robotsetting" }
+        ],
+        "testkdd": [
+            {
+                "value": "testkdd",
+                "label": "使用示例"
+            }
+        ],
+        "asai": [
+            {
+                "value": "admin/jsonmanage",
+                "label": "Json编辑器"
+            },
+            {
+                "value": "user/login/",
+                "label": "登录（用户）"
+            },
+            {
+                "value": "user/exit/",
+                "label": "退出（用户）"
+            },
+            {
+                "value": "user/edit/",
+                "label": "编辑（用户）"
+            },
+            {
+                "value": "user/manage/list/",
+                "label": "列表（用户管理）"
+            }
+        ]
+    }
+}

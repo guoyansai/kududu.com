@@ -1,0 +1,28 @@
+{
+    "class": {
+        "luawhile": "循环",
+        "luaif": "流程控制",
+        "luafunction": "函数"
+    },
+    "luawhile": [
+        "while 循环",
+        "Lua 编程语言中 while 循环语句在判断条件为 true 时会重复执行循环体语句。"
+    ],
+    "luafor": [
+        "for 循环",
+        "Lua 编程语言中 for 循环语句可以重复执行指定语句，重复次数可在 for 语句中控制。"
+    ],
+    "luarepeat": ["repeat...until", "重复执行循环，直到 指定的条件为真时为止"],
+    "luaif": [
+        "if 语句",
+        "Lua if 语句 由一个布尔表达式作为条件判断，其后紧跟其他语句组成。"
+    ],
+    "luaelse": [
+        "if...else 语句",
+        "Lua if 语句可以与 else 语句搭配使用, 在 if 条件表达式为 false 时执行 else 语句代码块。"
+    ],
+    "luafunction": [
+        "函数",
+        "在Lua中，函数是对语句和表达式进行抽象的主要方法。既可以用来处理一些特殊的工作，也可以用来计算一些值。"
+    ]
+}

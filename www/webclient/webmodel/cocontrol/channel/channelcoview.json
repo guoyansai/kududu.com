@@ -1,0 +1,126 @@
+{
+    "widgets": [
+        {
+            "component": "RunStatus",
+            "name": "coview.runStatus.name",
+            "desc": "coview.runStatus.desc",
+            "data": {},
+            "style": {
+                "x": 30,
+                "y": 30,
+                "width": "750px",
+                "height": "120px"
+            }
+        },
+        {
+            "component": "Simulate",
+            "name": "coview.simulate.name",
+            "desc": "coview.simulate.desc",
+            "data": {},
+            "style": {
+                "x": 30,
+                "y": 180,
+                "width": "750px",
+                "height": "640px"
+            }
+        },
+        {
+            "component": "CoordToolPayload",
+            "name": "coview.coordToolPayload.name",
+            "desc": "coview.coordToolPayload.desc",
+            "data": {},
+            "style": {
+                "x": 30,
+                "y": 850,
+                "width": "750px",
+                "height": "120px"
+            }
+        },
+        {
+            "component": "ProjectLoad",
+            "name": "coview.projectLoad.name",
+            "desc": "coview.projectLoad.desc",
+            "data": {},
+            "style": {
+                "x": 830,
+                "y": 30,
+                "width": "440px",
+                "height": "200px"
+            }
+        },
+        {
+            "component": "GlobalVar",
+            "name": "coview.globalVar.name",
+            "desc": "coview.globalVar.desc",
+            "data": {},
+            "style": {
+                "x": 830,
+                "y": 260,
+                "width": "440px",
+                "height": "360px"
+            }
+        },
+        {
+            "component": "ProjectVar",
+            "name": "coview.projectVar.name",
+            "desc": "coview.projectVar.desc",
+            "data": {},
+            "style": {
+                "x": 1320,
+                "y": 30,
+                "width": "460px",
+                "height": "600px"
+            }
+        },
+        {
+            "component": "RealTimeLog",
+            "name": "coview.realTimeLog.name",
+            "desc": "coview.realTimeLog.desc",
+            "data": {},
+            "style": {
+                "x": 1320,
+                "y": 660,
+                "width": "200px",
+                "height": "100px"
+            }
+        },
+        {
+            "component": "ErrorInfo",
+            "name": "coview.errorInfo.name",
+            "desc": "coview.errorInfo.desc",
+            "data": {},
+            "style": {
+                "x": 1570,
+                "y": 660,
+                "width": "200px",
+                "height": "100px"
+            }
+        },
+        {
+            "component": "Logo",
+            "name": "coview.logo.name",
+            "desc": "coview.logo.desc",
+            "data": {
+                "imgSrc": ""
+            },
+            "style": {
+                "x": 1320,
+                "y": 800,
+                "width": "460px",
+                "height": "160px"
+            }
+        },
+        {
+            "component": "FullLog",
+            "name": "coview.fullLog.name",
+            "desc": "coview.fullLog.desc",
+            "data": {},
+            "style": {
+                "x": 1320,
+                "y": 660,
+                "width": "200px",
+                "height": "100px"
+            }
+        }
+    ]
+}

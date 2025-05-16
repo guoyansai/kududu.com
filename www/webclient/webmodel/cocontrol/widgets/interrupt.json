@@ -1,0 +1,29 @@
+{
+    "Interrupt": {
+        "setInterruptInterval": {
+            "interruptname": "",
+            "interval": 0,
+            "interruptcount": 0,
+            "op": {
+                "co": ["#6f43e7", "#af99ec"]
+            }
+        },
+        "setInterruptCondition": {
+            "interruptname": "",
+            "condition": "",
+            "interruptcount": 0,
+            "op": {
+                "co": ["#6f43e7", "#af99ec"]
+            }
+        },
+        "clearInterrupt": {
+            "interruptname": "",
+            "op": {
+                "co": ["#6f43e7", "#af99ec"]
+            }
+        },
+        "op": {
+            "co": ["#6f43e7", "#af99ec"]
+        }
+    }
+}

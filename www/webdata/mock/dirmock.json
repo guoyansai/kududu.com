@@ -1,6 +1,6 @@
 {
-    "dirdb": ["db/wsrobot.json"],
+    "dirdb": ["db/cocontrol.json", "db/covision.json"],
     "db": {},
-    "dirfn": ["js/wsrobot.js"],
+    "dirfn": ["js/cocontrol.js"],
     "fn": {}
 }

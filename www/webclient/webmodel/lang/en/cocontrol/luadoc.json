@@ -1,0 +1,17 @@
+{
+    "class": {
+        "main": "changyong",
+        "move": "move",
+        "aaa": "test"
+    },
+    "moveJ": ["moveJ", "we are hahaff"],
+    "moveL": ["moveL", "jiujkljljlk"],
+    "moveCW": ["moveCW", "we are haha"],
+    "if": ["IF", "we are haha"],
+    "elseif": ["ELSEIF", "we are haha"],
+    "while": ["WHILE", "we are haha"],
+    "if1": ["IF1", "we are haha"],
+    "e3lseif": ["ELSE3", "we are haha"],
+    "whi4le": ["WHILE4", "we are haha"],
+    "movteJ": ["MOTEJ", "we are haha"]
+}

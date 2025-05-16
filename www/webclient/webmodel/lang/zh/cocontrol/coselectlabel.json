@@ -1,0 +1,9 @@
+{
+    "frantype": "法兰",
+    "controltype": "控制柜",
+    "rsstopone": "1停止位",
+    "rsstoptwo": "2停止位",
+    "noveri": "无校验",
+    "oddveri": "奇校验",
+    "evenveri": "偶校验"
+}

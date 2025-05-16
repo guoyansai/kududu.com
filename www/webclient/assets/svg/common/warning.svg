@@ -1,0 +1,15 @@
+<svg id="警告错误_new" data-name="警告错误 new" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1 {
+        fill: #434343;
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 40px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="形状_9" data-name="形状 9" class="cls-1" d="M741.776,708.4c22.714-22.671,26.531-53.055,8.041-76.51L436.759,89.76c-23.036-29.221-60.845-29.221-83.835,0L48.835,625.464C30.316,649,34.146,686.518,56.9,709.268ZM337.553,210.99h112.06V526.984H337.553V210.99ZM395,540a70,70,0,1,1-70,70A70,70,0,0,1,395,540Z"/>
+</svg>

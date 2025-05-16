@@ -1,0 +1,14 @@
+{
+    "dir": [
+        "main.json",
+        "move.json",
+        "logic.json",
+        "control.json",
+        "io.json",
+        "socket.json",
+        "register.json",
+        "rs485.json",
+        "interrupt.json",
+        "other.json"
+    ]
+}

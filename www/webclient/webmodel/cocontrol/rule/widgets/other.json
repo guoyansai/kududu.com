@@ -1,0 +1,211 @@
+{
+    "readme": {
+        "tips": ["", "输入提示文字"],
+        "require": "是否必填",
+        "default": "是否默认展示",
+        "rex": "fouce时正则校验规则",
+        "rexin": "input即时性校验规则",
+        "typesys": "数据系统类型",
+        "type": "web数据类型",
+        "comp": "对应的渲染组件名",
+        "min": "最小值或最小长度",
+        "max": "最大值或最大长度",
+        "step": "步长，comp为CustomInput生效",
+        "unit": "单位，comp为CustomInput生效",
+        "hidebtn": "是否显示+ - 按钮，comp为CustomInput生效",
+        "hidereplace": "控制输入内容超过最大值或低于最小值时是否用最大值或最小值替换当前内容，comp为CustomInput生效",
+        "precision": "设置是否保留小数后几位,comp为CustomInput生效",
+        "arrlen": "控制数组长度，ArrayTemplate组件生效",
+        "maxlen": "控制输入长度长度",
+        "nomax": "输入的值是否能为最大值",
+        "nomin": "输入的值是否能为最小值",
+        "isitem": "控制Select是否数组 true 为数组 false为json数组",
+        "options": "Select数据",
+        "nodel": "禁止删除",
+        "hidelabel": "隐藏label"
+    },
+    "template": {
+        "treeinputnumber": {
+            "tips": "cocommon.inputnumber",
+            "width": "120px",
+            "require": true,
+            "type": "number",
+            "comp": "TreeInput"
+        },
+        "treeinputstring": {
+            "tips": "cocommon.inputstring",
+            "width": "120px",
+            "require": true,
+            "type": "string",
+            "comp": "TreeInput"
+        },
+        "treeselectstring": {
+            "tips": "cocommon.selecttips",
+            "width": "120px",
+            "require": true,
+            "type": "string",
+            "comp": "TreeSelect"
+        },
+        "treeselectnumber": {
+            "tips": "cocommon.selecttips",
+            "width": "120px",
+            "require": true,
+            "type": "number",
+            "comp": "TreeSelect"
+        },
+        "treeswitch": {
+            "comp": "TreeSwitch"
+        }
+    },
+    "port": {
+        "tmp": "treeinputstring"
+    },
+    "outputval": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9]",
+        "step": 1,
+        "min": 0,
+        "max": 1
+    },
+    "startPor": {
+        "tmp": "treeinputstring"
+    },
+    "endPor": {
+        "tmp": "treeinputstring"
+    },
+    "intval": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9-]",
+        "step": 1
+    },
+    "floatval": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9-.]"
+    },
+    "boolval": {
+        "tmp": "treeswitch"
+    },
+    "clientname": {
+        "tmp": "treeinputstring"
+    },
+    "serverhost": {
+        "tmp": "treeinputstring"
+    },
+    "serverport": {
+        "tmp": "treeinputstring"
+    },
+    "timeout": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9]",
+        "step": 1,
+        "min": 0,
+        "unit": "ms"
+    },
+    "senddata": {
+        "tmp": "treeinputstring"
+    },
+    "regaddr": {
+        "tmp": "treeinputstring"
+    },
+    "rstype": {
+        "tmp": "treeselectnumber",
+        "options": [
+            {
+                "label": "coselectlabel.frantype",
+                "value": 0
+            },
+            {
+                "label": "coselectlabel.controltype",
+                "value": 1
+            }
+        ]
+    },
+    "rsbaud": {
+        "tmp": "treeinputnumber"
+    },
+    "stop": {
+        "tmp": "treeselectnumber",
+        "options": [
+            {
+                "label": "coselectlabel.rsstopone",
+                "value": 1
+            },
+            {
+                "label": "coselectlabel.rsstoptwo",
+                "value": 2
+            }
+        ]
+    },
+    "parity": {
+        "tmp": "treeselectnumber",
+        "options": [
+            {
+                "label": "coselectlabel.noveri",
+                "value": 0
+            },
+            {
+                "label": "coselectlabel.oddveri",
+                "value": 1
+            },
+            {
+                "label": "coselectlabel.evenveri",
+                "value": 2
+            }
+        ]
+    },
+    "data": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9]",
+        "step": 1,
+        "min": 5,
+        "max": 8
+    },
+    "waittime": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9]",
+        "step": 1,
+        "min": 0,
+        "unit": "ms"
+    },
+    "condition": {
+        "tmp": "treeinputstring"
+    },
+    "scriptname": {
+        "tmp": "treeinputstring"
+    },
+    "interruptname": {
+        "tmp": "treeinputstring"
+    },
+    "interval": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9]",
+        "step": 1,
+        "min": 0,
+        "unit": "ms"
+    },
+    "interruptcount": {
+        "tmp": "treeinputnumber",
+        "rexin": "[^0-9]",
+        "step": 1,
+        "min": 0
+    },
+    "script": {
+        "label": "</>",
+        "tips": "cocommon.inputscript",
+        "width": "500px",
+        "require": true,
+        "default": true,
+        "type": "string",
+        "nodel": true,
+        "comp": "TreeInput"
+    },
+    "e": {
+        "tips": "cocommon.inputexpression",
+        "width": "500px",
+        "require": true,
+        "default": true,
+        "type": "string",
+        "nodel": true,
+        "comp": "TreeInput"
+    }
+}

@@ -1,0 +1,1 @@
+import{d as a,j as s,o as t}from"./chunk-asai-BcUlmSst.js";import{_ as o}from"./entry-asai-C1GKnLJc.js";import"./chunk-asai-Dt9XmewB.js";import"./chunk-asai-BEbmHGt4.js";const e={class:"as-view-area"},i=o(a({__name:"default",props:{ujt:{}},setup:a=>(a,o)=>(t(),s("div",e))}),[["__scopeId","data-v-d964de77"]]);export{i as default};

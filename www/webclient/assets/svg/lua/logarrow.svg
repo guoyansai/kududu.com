@@ -1,0 +1,16 @@
+<svg id="点击前进" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 60px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="arrowRightbold" class="cls-1" d="M94.3,721.679L407.656,399.44,94.3,74.328"/>
+  <path id="arrowRightbold_" data-name="arrowRightbold " class="cls-1" d="M392.3,721.679L705.656,399.44,392.3,74.328"/>
+</svg>

@@ -1,0 +1,22 @@
+{
+    "digitaout": "Digital Output",
+    "digitalin": "Digital Input",
+    "analogout": "Analog Output",
+    "analogin": "Analog Input",
+    "lock": "lock",
+    "unlock": "unlock",
+    "ports": "Port",
+    "address": "Address",
+    "type": "Type",
+    "name": "Name",
+    "value": "Value",
+    "permission": "Permission",
+    "monitor": "Monitoring",
+    "on": "On",
+    "off": "Off",
+    "savechange": "Save Change",
+    "force": "Force",
+    "save": "Save",
+    "cancel": "Cancel",
+    "send": "Send"
+}

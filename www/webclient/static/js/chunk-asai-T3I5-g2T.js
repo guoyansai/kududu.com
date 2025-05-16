@@ -1,0 +1,1 @@
+import{d as t,r as s,c as u,o as a}from"./chunk-asai-BcUlmSst.js";const e=t({__name:"index",props:{ujt:{}},setup:t=>(t,e)=>{const o=s("RouterView");return a(),u(o,{ujt:t.ujt,ty:2},null,8,["ujt"])}});export{e as default};

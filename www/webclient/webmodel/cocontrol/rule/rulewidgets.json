@@ -1,0 +1,7 @@
+{
+    "dir": [
+        "widgets/move.json",
+        "widgets/widgets.json",
+        "widgets/other.json"
+    ]
+}

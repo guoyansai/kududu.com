@@ -1,0 +1,12 @@
+{
+    "dbtype": "file",
+    "model": "testkdd",
+    "sn": "channeltest",
+    "config": {
+        "ps": 3,
+        "pmax": 9999
+    },
+    "sxs": ["asai", "time", "tit", "sn"],
+    "sss": ["asai", "tit", "content"],
+    "rule": {}
+}

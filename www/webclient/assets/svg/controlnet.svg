@@ -1,0 +1,35 @@
+<svg id="远程模式" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-width: 30px;
+      }
+
+      .cls-1 {
+        stroke: #333;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #313131;
+      }
+
+      .cls-3 {
+        fill: #313131;
+        stroke-width: 14px;
+      }
+    </style>
+  </defs>
+  <path id="圆角矩形_38" data-name="圆角矩形 38" class="cls-1" d="M606.647,615.148H231.46a20,20,0,0,1-20-20V243.272a20,20,0,0,1,20-20H715.024a20,20,0,0,1,20,20V464.46"/>
+  <path id="形状_44" data-name="形状 44" class="cls-2" d="M470.317,711.28V622.014"/>
+  <path id="形状_45" data-name="形状 45" class="cls-2" d="M331.507,722.85H606.974"/>
+  <path id="圆角矩形_38-2" data-name="圆角矩形 38" class="cls-1" d="M212.266,446.329H58.65A21.527,21.527,0,0,1,37.129,424.8V102.684A21.527,21.527,0,0,1,58.65,81.15H539.183A21.527,21.527,0,0,1,560.7,102.684V197.8"/>
+  <path id="形状_45-2" data-name="形状 45" class="cls-2" d="M86.168,539.815h115.34"/>
+  <path id="形状_46" data-name="形状 46" class="cls-3" d="M716.577,587.992L622.857,469.83l67.03-53.223L521.243,401.431,497.7,569.2l70.874-56.275L662.3,631.091Z"/>
+</svg>

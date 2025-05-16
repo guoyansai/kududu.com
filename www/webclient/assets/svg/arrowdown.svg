@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 60px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="arrowDown" class="cls-1" d="M753.976,270.006L400.488,596.984,46,270.006"/>
+</svg>

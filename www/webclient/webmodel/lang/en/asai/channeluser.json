@@ -15,8 +15,8 @@
     },
     "lv": {
         "1": "Guest",
-        "3": "Producer",
-        "5": "Operator",
+        "3": "Operator",
+        "5": "Engineer",
         "7": "Administrator",
         "9": "Developer",
         "99": "Superuser"

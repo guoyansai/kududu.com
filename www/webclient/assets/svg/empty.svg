@@ -1,0 +1,51 @@
+<svg id="空数据" xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs>
+    <style>
+      .cls-1, .cls-3, .cls-4 {
+        fill: #434343;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        stroke: #434343;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 30px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4 {
+        opacity: 0.3;
+      }
+
+      .cls-4 {
+        stroke-width: 1px;
+      }
+    </style>
+  </defs>
+  <path id="椭圆_527" data-name="椭圆 527" class="cls-1" d="M400,749c198.822,0,360,2.91,360,6.5S598.822,762,400,762s-360-2.91-360-6.5S201.178,749,400,749Z"/>
+  <path id="形状_23" data-name="形状 23" class="cls-2" d="M574.138,167.085l-32.022-52.13L420.033,98.915l41.028,49.122"/>
+  <path id="形状_22" data-name="形状 22" class="cls-2" d="M153.851,76.86l97.067-41.1L381.006,61.823l-96.065,60.149"/>
+  <path id="形状_20" data-name="形状 20" class="cls-2" d="M241.911,367.583l47.032-241.6L150.849,81.873,110.822,317.459l117.666,51.8"/>
+  <path id="形状_21" data-name="形状 21" class="cls-2" d="M545.118,357.558L576.139,173.1,294.947,133"/>
+  <path id="形状_18" data-name="形状 18" class="cls-2" d="M131.836,368.586L23.763,489.888l104.071-10.025Z"/>
+  <path id="形状_19" data-name="形状 19" class="cls-2" d="M473.069,375.6L548.12,485.878l172.117-39.1-93.063-99.247Z"/>
+  <path id="形状_17" data-name="形状 17" class="cls-2" d="M628.174,473.848V601.125L466.026,663.279"/>
+  <path id="形状_16" data-name="形状 16" class="cls-2" d="M134.838,367.583V647.2l330.225,17.042V376.606Z"/>
+  <path id="形状_24" data-name="形状 24" class="cls-3" d="M289,133L245,359l209,12,90-22,17-172Z"/>
+  <path id="形状_25" data-name="形状 25" class="cls-3" d="M541,119L426,103l37,46,101,13Z"/>
+  <path id="形状_26" data-name="形状 26" class="cls-4" d="M126,388L39,481l84-4Z"/>
+  <path id="形状_27" data-name="形状 27" class="cls-4" d="M473,391l-2,266,155-59,4-123-71,14Z"/>
+  <path id="形状_28" data-name="形状 28" class="cls-2" d="M773.453,214.212l-85.171,43.942"/>
+  <path id="形状_29" data-name="形状 29" class="cls-2" d="M651,171l-4,62"/>
+  <path id="形状_29-2" data-name="形状 29" class="cls-2" d="M762.246,325.279L691,304"/>
+</svg>

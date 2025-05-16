@@ -1,0 +1,138 @@
+{
+    "ver": "0.1",
+    "fillFrameNumber": 0.05,
+    "ratio": 1000,
+	"jointNumber": 6,
+    "axisModel": {
+		"pathUrl": "./assets/3dmodel/",
+        "fileName": "axis-model.glb",
+        "link6Objects": [
+            {
+                "name": "Link1",
+                "axis": "rz",
+                "directionFlag": 1
+            },
+            {
+                "name": "Link2",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "Link3",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "Link4",
+                "axis": "ry",
+                "directionFlag": 0
+            },
+            {
+                "name": "Link5",
+                "axis": "rz",
+                "directionFlag": 0
+            },
+            {
+                "name": "Link6",
+                "axis": "ry",
+                "directionFlag": 1
+            }
+        ],
+        "link4Objects": [
+            {
+                "name": "Link1",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "Link2",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "Link3",
+                "axis": "ry",
+                "directionFlag": 0
+            },
+            {
+                "name": "Link4",
+                "axis": "rz",
+                "directionFlag": 1
+            }
+        ],
+        "link7ObjectsLeft": [
+            {
+                "name": "LeftLink1",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "LeftLink2",
+                "axis": "rx",
+                "directionFlag": 1
+            },
+            {
+                "name": "LeftLink3",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "LeftLink4",
+                "axis": "rx",
+                "directionFlag": 1
+            },
+            {
+                "name": "LeftLink5",
+                "axis": "ry",
+                "directionFlag": 1
+            },
+            {
+                "name": "LeftLink6",
+                "axis": "rz",
+                "directionFlag": 1
+            },
+            {
+                "name": "LeftLink7",
+                "axis": "rx",
+                "directionFlag": 1
+            }
+        ],
+        "link7ObjectsRight": [
+            {
+                "name": "RightLink1",
+                "axis": "ry",
+                "directionFlag": 0
+            },
+            {
+                "name": "RightLink2",
+                "axis": "rx",
+                "directionFlag": 1
+            },
+            {
+                "name": "RightLink3",
+                "axis": "ry",
+                "directionFlag": 0
+            },
+            {
+                "name": "RightLink4",
+                "axis": "rx",
+                "directionFlag": 1
+            },
+            {
+                "name": "RightLink5",
+                "axis": "ry",
+                "directionFlag": 0
+            },
+            {
+                "name": "RightLink6",
+                "axis": "rz",
+                "directionFlag": 1
+            },
+            {
+                "name": "RightLink7",
+                "axis": "rx",
+                "directionFlag": 1
+            }
+        ]
+    }
+}
